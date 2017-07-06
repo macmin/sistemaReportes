@@ -16,11 +16,25 @@ class wsUsuarios
         
         switch ($this-> WS) {
 
-           case 'help':
+           case 'sigIn':
+                 $errors = array();
+                
+                $username = $this -> getPOST('usuario');
+                $pass = $this -> getPOST('password');
+                if(empty($username) )
+                    $errors[]= "Falta el campo username";
+                if(empty($pass) )
+                    $errors[] = "Falta el campo password";
+
+                if(count($errors) == 0 ){
+
+                    header('Location: mipagina.php');
+
+                }
 
                 
+
                 break;
-           
            
         	case 'N0':
 
