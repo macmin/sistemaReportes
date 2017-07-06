@@ -1,0 +1,191 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	box-sizing: border-box; 
+}
+/*estilos login*/
+header{
+	width: 100%;
+	height: 50px;
+	background-color: #008096;
+}
+
+h1{
+	text-align: center;
+	color: #fff;
+	padding-top: 5px;
+}
+
+.contenedor{
+	width: 450px;
+	margin: auto;
+	background-color: #3D8C99;
+	padding: 30px;
+	border: 1px solid rgba(0,0,0,0.9);
+	margin-top: 50px;
+}
+
+.contenedor a{
+	color: brown;
+	text-decoration: none;
+}
+
+h2{
+	text-align: center;
+	margin-bottom: 20px;
+	color: #fff; 
+}
+
+h4{
+	text-align: center;
+	margin-bottom: 9px;
+	color: #fff; 
+}
+
+.cajaTexto{
+	display: block;
+	width: 100%;
+	padding: 10px;
+	margin: 20px 0;
+	font-size: 20px;
+}
+
+.boton{
+	background: linear-gradient(#FFDA63, #FFB940);
+	border: 0;
+	color: brown;
+	opacity: 0.8;
+	cursor: pointer;
+	border-radius: 20px;
+	margin-bottom: 0;
+	width: 100%;
+	font-size: 20px;
+	padding: 10px;
+}
+
+.boton:hover{
+	opacity: 1;
+}
+
+.boton:active{
+	transform: scale(0.95);
+}
+
+@media(max-width: 480px){
+	form{
+		width: 95%;
+	}
+	
+}
+
+/*estilos usuarios*/
+
+.selectRol{
+	width: 50%;
+	font-size:20px;
+	padding: 0 0 0 20px;
+	display: block;
+}
+
+/*estilos menuAdministrador*/
+.contenedorAdmin{
+	width: 80%;
+	margin: auto;
+	background-color: #3D8C99;
+	padding: 30px;
+	border: 1px solid rgba(0,0,0,0.9);
+	margin-top: 50px;
+}
+
+.contenedorAdmin a{
+	color: brown;
+	text-decoration: none;
+}
+
+.botonMenu{
+	background: linear-gradient(#FFDA63, #FFB940);
+	border: 0;
+	color: brown;
+	opacity: 0.8;
+	cursor: pointer;
+	border-radius: 20px;
+	margin-bottom: 0;
+	width: 80%;
+	font-size: 20px;
+	padding: 10px;
+}
+
+.alineacionMenu{
+	display:inline-block;
+}
+
+/*estilos configuracion*/
+
+.botonConfig{
+	background: linear-gradient(#FFDA63, #FFB940);
+	border: 0;
+	color: brown;
+	opacity: 0.8;
+	cursor: pointer;
+	border-radius: 10px;
+	margin-bottom: 0;
+	width: 60%;
+	font-size: 20px;
+	padding: 10px;
+}
+
+.contenedorConfig{
+	width: 80%;
+	margin: auto;
+	background-color: #3D8C99;
+	padding: 30px;
+	border: 1px solid rgba(0,0,0,0.9);
+	margin-top: 50px;
+}
+
+/*estilos para productos*/
+
+.buscarProducto{
+	display: block;
+	width: 30%;
+	padding: 10px;
+	font-size: 15px;
+	text-align: center;
+}
+
+.botonBuscar{
+	background: linear-gradient(#FFDA63, #FFB940);
+	border: 0;
+	color: brown;
+	opacity: 0.8;
+	cursor: pointer;
+	border-radius: 10px;
+	margin-bottom: 0;
+	width: 20%;
+	font-size: 20px;
+	padding: 10px;
+}
+
+.tablaProductos{
+	width: 80%;
+	border-color: black;
+
+}
+
+/*estilos opcionUsuario.php*/
+.tablaUsuarios{
+	width: 80%;
+	border-color: black;
+	color: white;
+
+}
+
+.contenedorUsuarios{
+	width: 85%;
+	margin: auto;
+	background-color: #3D8C99;
+	padding: 30px;
+	border: 1px solid rgba(0,0,0,0.9);
+	margin-top: 50px;
+}
