@@ -32,6 +32,8 @@ class wsUsuarios
 
                     $respuesta=[];
 
+                    
+
                     if($consulta){
                                 
                                 session_start();
@@ -40,12 +42,8 @@ class wsUsuarios
 
 
                     }else{
-                            $respuesta = array("Mensaje" => "¡Error!, usuario no existe. ",
-                                    "codMensaje" => 200,
-                                    "Datos" => []
-                                    );
-
-                            echo json_encode($respuesta);
+                            session_destroy();
+                            header("location:../login.php");
                         }   
 
                     }

@@ -1,3 +1,14 @@
+<?php
+	
+	session_start();
+
+   	if( isset( $_SESSION['name'] ) ){
+	
+	
+
+	
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,7 +24,7 @@
 		<header>
 		<div class="row around-xs center-xs">
     		<div class="col-xs-4">
-				<h1>Nombre: </h1>
+				<h1>Nombre: <?php echo $_SESSION['name'] ?> </h1>
 			</div>
 			<div class="col-xs-4">		
 				<i class="fa fa-user-circle fa-3x icono" aria-hidden="true" onclick="document.getElementById('ventana1').style.visibility='visible'"></i>
@@ -53,4 +64,12 @@
 				</div>
 			</form>
 	</body>
+
+<?php
+}else{
+		echo "no hay session";
+
+	}
+
+?>
 </html>
