@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Productos</title>
+		<title>Entradas y Salidas</title>
 		<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
     	<link rel="stylesheet" type="text/css" href="css/jquery.datatables.css" />
     	<link rel="stylesheet" type="text/css" href="css/buttons.datatables.css" />
@@ -16,25 +16,40 @@
     	<script type="text/javascript" src="DataTable/buttons.print.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
 	</head>
-	<body>
+	 <body>
         <header>
-                <h1>Productos</h1>
+                <h1>Entradas y salidas</h1>
         </header>
         <br>
         <br>
+        <div class="row around-xs center-xs">
+                    <div class="col-xs-6">
+                        <input type="text" class="cajaES alineacionTexto" name="" placeholder="EAN" autofocus="autofocus">
+                        <button class="botonES">Agregar</button>
+                    </div>      
+                    <div class="col-xs-6">      
+                        Cantidad:
+                        <input type="text" class="cajaES alineacionTexto" name="" placeholder="0">
+                    </div>
+                </div>
         <div>
+        <br>
+        <br>
+        <br>
+        <br>
         	<table id='tblRespuesta'>
         		<thead>
         			<tr>
         				<th>EAN</th>
         				<th>Nombre</th>
-                        <th>Descripcion</th>
+                        <th>Cantidad</th>
         			</tr>	
         		</thead>
         		<tbody>
         		</tbody>
         	</table>
         </div>
+
         <script type="text/javascript">
         	var table;
         	$(document).ready(function() {
@@ -68,25 +83,6 @@
                 });
         	});
         </script>
-        <h2>Productos<h2>
-				<div class="row around-xs center-xs">
-    				<div class="col-xs-4">
-						<button class="botonProductos" onclick="javascript:addProductos();">Productos</button>Agregar Producto</button>
-					</div>		
-					<div class="col-xs-4">		
-						<button class="botonProductos">Dar de Baja Producto</button>
-					</div>
-					<div class="col-xs-4">		
-						<button class="botonProductos">Agregar Movimiento</button>
-					</div>
-				</div>
-        <script>
-
-            function addProductos(){
-
-                window.location="addProductos.php";
-            }
-
-            </script>
+				
     </body>
 </html> 
