@@ -6,11 +6,31 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
 		<link rel="stylesheet" href="css/estilos.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
 	</head>
 	<body>
 		<header>
-			<h1>Administrador</h1>
+		<div class="row around-xs center-xs">
+    		<div class="col-xs-4">
+				<h1>Nombre: </h1>
+			</div>
+			<div class="col-xs-4">		
+				<i class="fa fa-user-circle fa-3x icono" aria-hidden="true" onclick="document.getElementById('ventana1').style.visibility='visible'"></i>
+			</div>
+		</div>
+		
+		<div class="ventana" id="ventana1">
+    		<span class="cerrar" onclick="document.getElementById('ventana1').style.visibility='hidden'">x
+    		</span>
+    		<center>
+	        	<br>
+	        	<form>
+	            <a href="login.php" class="linkFormato text-black">Salir</a>
+	       		</form>
+    		</center>
 		</header>
+
 			<form class="contenedorAdmin">
 				<div class="row around-xs center-xs">
     				<div class="col-xs-6">
