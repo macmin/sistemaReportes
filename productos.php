@@ -16,7 +16,9 @@
     	<script type="text/javascript" src="DataTable/buttons.print.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
 	</head>
+
 	<body>
+
         <header>
                 <h1>Productos</h1>
         </header>
@@ -71,7 +73,10 @@
         <h2>Productos<h2>
 				<div class="row around-xs center-xs">
     				<div class="col-xs-4">
+
+
 						<button class="botonProductos" onclick="javascript:addProductos();">Productos</button>Agregar Producto</button>
+
 					</div>		
 					<div class="col-xs-4">		
 						<button class="botonProductos">Dar de Baja Producto</button>
@@ -80,6 +85,7 @@
 						<button class="botonProductos">Agregar Movimiento</button>
 					</div>
 				</div>
+
         <script>
 
             function addProductos(){
@@ -88,5 +94,6 @@
             }
 
             </script>
+
     </body>
 </html> 
