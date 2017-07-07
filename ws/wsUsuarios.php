@@ -19,8 +19,8 @@ class wsUsuarios
            case 'sigIn':
                 $errors = array();
                 
-                $username = $this -> getPOST('usuario');
-                $pass = $this -> getPOST('password');
+                $username = htmlentities(addslashes($this -> getPOST('usuario') ) );
+                $pass = htmlentities(addslashes($this -> getPOST('password') ) );
                 if(empty($username) )
                     $errors[]= "Falta el campo username";
                 if(empty($pass) )
@@ -57,9 +57,6 @@ class wsUsuarios
                 $consulta = $this -> usuario -> getRolesExistentes();
 
             
-
-                
-            
                 $respuesta=[];
 
                 if($consulta){
@@ -87,8 +84,8 @@ class wsUsuarios
 
             case 'addUsuario':
 
-                $nombre = $this-> getPOST('nombre');
-                $app = $this -> getPOST('app');
+                $nombre = htmlentities(addslashes($this-> getPOST('nombre') ) ) ;
+                $app = htmlentities(addslashes( $this -> getPOST('app') ) );
                 $apm = $this-> getPOST('apm');
                 $usuario = $this -> getPOST('usuario');
                 $password = $this -> getPOST('password');
@@ -101,6 +98,8 @@ class wsUsuarios
                     $errors[] = "Falta ingresar los apellidos";
                 if(empty($usuario) || empty($password) ) 
                     $errors[] = "Usuario y password son requeridos";
+                if(! filter_var($email_a, FILTER_VALIDATE_EMAIL))
+                    $errors[] = "usuario tiene formato de correo";
                 if(empty($rol) )
                     $errors[] = "Rol no seleccionado";
 
