@@ -26,6 +26,9 @@
 					<br>
 					<br>
 					<button class="boton">Registrar</button>
+					<br>
+					<br>
+					<button class="boton"><a href="menuAdministrador.php">Inicio</a></button>
 				</center>
 			</form>
 	</body>
