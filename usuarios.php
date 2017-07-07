@@ -15,6 +15,8 @@
 				<center>
 					<i class="fa fa-user-circle fa-5x centrar" aria-hidden="true"></i>
 					<input type="text" class="cajaTexto" placeholder="Nombre">
+					<input type="text" class="cajaTexto" placeholder="Apellido Paterno">
+					<input type="text" class="cajaTexto" placeholder="Apellido Materno">
 					<input type="text" class="cajaTexto" placeholder="Usuario">
 					<input type="password" class="cajaTexto" placeholder="Contraseña">
 					<br>
