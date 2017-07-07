@@ -28,7 +28,25 @@ class wsUsuarios
 
                 if(count($errors) == 0 ){
 
-                    header('Location: mipagina.php');
+                    $consulta = $this -> usuario -> consultaLogin($username, $pass);
+
+                    $respuesta=[];
+
+                    if($consulta){
+                                
+                                session_start();
+                                $_SESSION["name"] = $username;
+                                header("location:../comprimir.php");
+
+
+                    }else{
+                        $respuesta = array("Mensaje" => "¡Error!,  no registrado. ",
+                                    "codMensaje" => 200,
+                                    "Datos" => []
+                                    );
+
+                                 echo json_encode($respuesta);
+                    }   
 
                 }
 
