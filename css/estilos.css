@@ -17,6 +17,10 @@
 	color: black;
 }
 
+.espaciado{
+	margin: 5px;
+}
+
 /*estilos login*/
 header{
 	width: 100%;
@@ -358,11 +362,11 @@ h4{
 	width: 15%;
 	font-size: 15px;
 	padding: 10px;
+	visibility:hidden;
 }
 
 .cajaES{
 	width: 30%;
 	padding: 5px;
 	font-size: 15px;
-
 }
