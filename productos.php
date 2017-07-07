@@ -16,9 +16,7 @@
     	<script type="text/javascript" src="DataTable/buttons.print.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
 	</head>
-
-	<body>
-
+	 <body>
         <header>
                 <h1>Productos</h1>
         </header>
@@ -40,6 +38,7 @@
         <script type="text/javascript">
         	var table;
         	$(document).ready(function() {
+                
         		table = $("#tblRespuesta").DataTable({
         			paging:false,
                     dom: 'Bfrtip',
@@ -73,10 +72,7 @@
         <h2>Productos<h2>
 				<div class="row around-xs center-xs">
     				<div class="col-xs-4">
-
-
-						<button class="botonProductos" onclick="javascript:addProductos();">Productos</button>Agregar Producto</button>
-
+						<button class="botonProductos">Agregar Producto</button>
 					</div>		
 					<div class="col-xs-4">		
 						<button class="botonProductos">Dar de Baja Producto</button>
@@ -85,15 +81,5 @@
 						<button class="botonProductos">Agregar Movimiento</button>
 					</div>
 				</div>
-
-        <script>
-
-            function addProductos(){
-
-                window.location="addProductos.php";
-            }
-
-            </script>
-
     </body>
 </html> 

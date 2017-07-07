@@ -16,8 +16,53 @@ class wsProductos
         
         switch ($this-> WS) {
 
-           case 'help':
+           case 'addProducto':
 
+                $ean = $this-> getPOST("ean");
+                $nombre = $this-> getPOST("nombre");
+                $desc = $this -> getPOST("descipcion");
+                $codAlt = $this -> getPOST("codAlt");
+
+                $errors = array();
+
+                if(empty($ean) )
+                    $errors[] = "codigo ean requerido";
+                if(empty($nombre))
+                    $errors[] = "campo nombre requerido";
+                if(empty($desc) )
+                    $errors[] = "campo descripcion requerido";
+                if(empty($codAlt))
+                    $errors[]= "campo codigo alterno requerido";
+                if(count($errors) == 0){
+
+                    $ingresar = $this -> producto -> insertProduc($ean,$nombre,$desc,$codAlt);
+
+                    $respuesta[];
+
+                    if($ingresar){
+
+                         $respuesta = array("Mensaje" => "Producto Ingresado",
+                                                "codMensaje" => 100,
+                                                "Datos" => []
+                                                );
+
+                        echo json_encode($respuesta);
+
+                    }else{
+
+                         $respuesta = array("Mensaje" => "Producto No ingresado",
+                                                "codMensaje" => 200,
+                                                "Datos" => []
+                                                );
+
+                        echo json_encode($respuesta);
+
+
+
+                    }
+                }
+
+ 
                 
                 break;
            

@@ -10,6 +10,13 @@ class PRODUCTOS extends Connection
         
 	}
 
+	public function insertProduc($ean,$nombre,$desc,$codAlt)
+	{
+		$this-> setQuery("insert into productos ... ");
+		$this-> Ejecutar();
+
+		$this->getIsCorrect();
+	}
     
 
 
