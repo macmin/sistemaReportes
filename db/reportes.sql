@@ -250,11 +250,12 @@ CREATE TABLE `users` (
   `apm` varchar(100) DEFAULT NULL,
   `dateInsert` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `rolId` int(11) DEFAULT NULL,
+  `statusId` int(11) DEFAULT NULL,
   PRIMARY KEY (`userId`),
   KEY `rolId` (`rolId`),
   KEY `username` (`username`),
   CONSTRAINT `users_ibfk_1` FOREIGN KEY (`rolId`) REFERENCES `roles` (`rolId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -263,7 +264,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'mac@gmail.com','7110eda4d09e062aa5e4a390b0a572ac0d2c0220','Macario','Minor','Arenas','2017-07-07 05:00:00',1),(2,'l@gmail.com','111','Manuel','Lara','Juarez','2017-07-07 16:39:31',2),(3,'j@gmail.com','2222','Juan','Perez','Hernandez','2017-07-07 16:40:21',2),(4,'luis@gmail.com','75d4c9b02467d96bc2ea6d655eb983d5a7a97a9b','Luis','Campos','Ramirez','2017-07-07 16:41:56',2);
+INSERT INTO `users` VALUES (1,'mac@gmail.com','7110eda4d09e062aa5e4a390b0a572ac0d2c0220','Macario','Minor','Arenas','2017-07-07 18:15:55',1,1),(2,'l@gmail.com','111','Manuel','Lara','Juarez','2017-07-07 18:16:14',2,1),(3,'j@gmail.com','2222','Juan','Perez','Hernandez','2017-07-07 18:16:18',2,1),(4,'luis@gmail.com','75d4c9b02467d96bc2ea6d655eb983d5a7a97a9b','Luis','Campos','Ramirez','2017-07-07 18:16:23',2,1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -276,4 +277,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-07 12:26:20
+-- Dump completed on 2017-07-07 18:20:11
