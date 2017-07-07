@@ -45,6 +45,19 @@ class USUARIOS extends Connection
 
     }
 
+    public function getUsuarios()
+    {
+    	$this -> setQuery("select username, password,nombre,app,apm,statusId from users");
+    	$this -> Ejecutar();
+
+    	while($row = $this-> getResult() -> fetch_array() )
+         
+            $resultados[] = $row;
+        return $resultados;
+
+
+    }
+
 
 
 

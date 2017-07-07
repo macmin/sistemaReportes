@@ -143,6 +143,35 @@ class wsUsuarios
 
 
                 break;
+
+            case 'getUsuarios':
+
+                $consultaUsers = $this -> usuario -> getUsuarios();
+
+                if($consultaUsers){
+                            $respuesta = array("Mensaje" => "Usuarios encontrados",
+                                                "codMensaje" => 100,
+                                                "Datos" => $consultaUsers
+                                                );
+
+                        echo json_encode($respuesta);
+                        
+                           
+
+
+                } else {
+                            $respuesta = array("Mensaje" => "¡Error!, no se encontraron los usuarios. ",
+                                    "codMensaje" => 200,
+                                    "Datos" => []
+                                    );
+
+                                 echo json_encode($respuesta);
+                    
+                } 
+
+
+
+                break;
            
         	case 'N0':
 
