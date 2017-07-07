@@ -17,7 +17,7 @@ class wsUsuarios
         switch ($this-> WS) {
 
            case 'sigIn':
-                 $errors = array();
+                $errors = array();
                 
                 $username = $this -> getPOST('usuario');
                 $pass = $this -> getPOST('password');
@@ -36,21 +36,114 @@ class wsUsuarios
                                 
                                 session_start();
                                 $_SESSION["name"] = $username;
-                                header("location:../comprimir.php");
+                                header("location:../menuAdministrador.php");
 
 
                     }else{
-                        $respuesta = array("Mensaje" => "¡Error!,  no registrado. ",
+                            $respuesta = array("Mensaje" => "¡Error!, usuario no existe. ",
+                                    "codMensaje" => 200,
+                                    "Datos" => []
+                                    );
+
+                            echo json_encode($respuesta);
+                        }   
+
+                    }
+
+                
+
+                break;
+
+            case 'getRol':
+
+                $consulta = $this -> usuario -> getRolesExistentes();
+
+            
+
+                
+            
+                $respuesta=[];
+
+                if($consulta){
+                            $respuesta = array("Mensaje" => "Roles obtenidos",
+                                                "codMensaje" => 100,
+                                                "Datos" => $consulta
+                                                );
+
+                        echo json_encode($respuesta);
+                        
+                           
+
+
+                }else{
+                        $respuesta = array("Mensaje" => "¡Error!, no se encontraron los roles. ",
                                     "codMensaje" => 200,
                                     "Datos" => []
                                     );
 
                                  echo json_encode($respuesta);
-                    }   
+                } 
+
+
+                break;
+
+            case 'addUsuario':
+
+                $nombre = $this-> getPOST('nombre');
+                $app = $this -> getPOST('app');
+                $apm = $this-> getPOST('apm');
+                $usuario = $this -> getPOST('usuario');
+                $password = $this -> getPOST('password');
+                $rol = $this -> getPOST('rol');
+                $errors = array();
+
+                if(empty ($nombre) )
+                    $errors[] = "Falta el campo nombre";
+                if(empty($apm) || empty($app) )
+                    $errors[] = "Falta ingresar los apellidos";
+                if(empty($usuario) || empty($password) ) 
+                    $errors[] = "Usuario y password son requeridos";
+                if(empty($rol) )
+                    $errors[] = "Rol no seleccionado";
+
+                if(count($errors) == 0 ){
+
+
+                    $insert = $this -> usuario -> insertUsuario($usuario,$password,$nombre,$app,$apm,$rol);
+
+                    if($insert){
+                            $respuesta = array("Mensaje" => "Usuario registrado",
+                                                "codMensaje" => 100,
+                                                "Datos" => []
+                                                );
+
+                        echo json_encode($respuesta);
+                        
+                           
+
+
+                    } else {
+                            $respuesta = array("Mensaje" => "¡Error!, no se encontraron los roles. ",
+                                    "codMensaje" => 200,
+                                    "Datos" => []
+                                    );
+
+                                 echo json_encode($respuesta);
+                    } 
 
                 }
 
-                
+                if(isset($errors) and count($errors) > 0 ){
+
+                    
+                    $respuesta = array("Mensaje" => "Error",
+                                    "codMensaje" => 200,
+                                    "Datos" => $errors
+                                    );
+                        echo json_encode($respuesta);
+                }  
+
+
 
                 break;
            
