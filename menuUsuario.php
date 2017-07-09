@@ -10,24 +10,27 @@
 	</head>
 	<body>
 		<header>
-			<h1>Opciones para Usuarios</h1>
+			<h1>Usuarios</h1>
 		</header>
 			<form class="contenedor">
 				<center>
-					<button class="boton" type="button" onclick="javascript:usuarios();">Adicionar Usuario</button>
+					<button class="botonMenu" type="button" onclick="javascript:productos();">Productos</button>
 					<br>
 					<br>
 					<br>
 					<br>
 					<br>
-					<button class="boton" type="button" onclick="javascript:modificarusuarios();">Modificar Usuario</button>
+					<br>
+					<button class="botonMenu" type="button" onclick="javascript:reportes();">Reportes</button>
 					<br>
 					<br>
 					<br>
 					<br>
 					<br>
-					<button class="boton" type="button" onclick="javascript:menuadministrador();">Regresar</button>
+					<br>
+					<button class="botonMenu" type="button" onclick="javascript:login();">Inicio</button>
 				</center>
 			</form>
+	
 	</body>
 </html>

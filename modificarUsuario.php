@@ -14,6 +14,7 @@
     	<script type="text/javascript" src="DataTable/vfs_fonts.js"></script>
     	<script type="text/javascript" src="DataTable/buttons.html5.js"></script>
     	<script type="text/javascript" src="DataTable/buttons.print.js"></script>
+        <script src="js/link.js"></script>
     </head>
     <body>
         <header>
@@ -54,21 +55,41 @@
         				}
         			]
         		});
-                $.post("../WS/wsUsuarios.php",{WS:"getUsuario"},function(res){
+                $.post("ws/wsUsuarios.php",{WS:"getUsuarios"},function(res){
                     table.rows().remove().draw();
-                    $.each(res,function(index,data){
+                    $.each(res.Datos,function(index,data){
                         table.row.add([
-                            data.userName,
+                            data.username,
                             data.nombre,
                             data.app,
                             data.apm,
                             data.statusId,
-                            data.statusId == 1 ? "Activo" : "Inactivo"
+                            //data.statusId == 1 ? "Activo" : "Inactivo"
+
+                            data.statusId == 1 ? "<select id='selectStatus' ><option value='1'>Activo</option><option value='0'>Inactivo</option></select>" : "Inactivo"
+                            
                         ]);
                     });
                     table.rows().draw();
                 });
         	});
         </script>
+
+
+        <script >
+
+            $(document).ready(function(){
+                $("#selectStatus").change(function(){
+                alert($('#selectStatus').val());
+            
+                });
+            });    
+            
+        </script>
+        <br>
+        <br>
+        <center>
+            <button class="botonRegresar" type="button" onclick="javascript:opcionesusuarios();">Regresar</button>
+        </center>
     </body>
-</html> q q
+</html> 

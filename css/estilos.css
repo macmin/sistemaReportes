@@ -21,6 +21,55 @@
 	margin: 5px;
 }
 
+/*estilos para data table*/
+
+#tblRespuesta{
+	 width: 96%;
+	 text-align: center;
+	}
+
+#tblFechas{
+	 width: 96%;
+	 text-align: center;
+	}
+
+#tblProductos{
+	 width: 96%;
+	 text-align: center;
+	}
+
+#tblMovimientos{
+	width: 96%;
+	text-align: center;
+}
+
+
+
+#tblRespuesta_info{
+	margin-left: 40%;
+}
+
+#tblRespuesta_filter{
+	margin-right:5%;
+}
+
+#tblFechas_filter{
+	margin-right:5%;
+}
+
+#tblProductos_filter{
+	margin-right:5%;
+}
+
+#tblMovimientos_filter{
+	margin-right:5%;
+}
+
+.dt-buttons{
+	margin-left: 5%;
+	margin-bottom: 1%;
+}
+
 /*estilos login*/
 header{
 	width: 100%;
@@ -114,7 +163,7 @@ h4{
 	cursor: pointer;
 	border-radius: 10px;
 	margin-bottom: 0;
-	width: 15%;
+	width: 100%;
 	font-size: 15px;
 	padding: 4px;
 }
@@ -123,6 +172,18 @@ h4{
 	font-size: 15px;
 }
 
+.botonRegresar{
+	background: linear-gradient(#FFDA63, #FFB940);
+	border: 0;
+	color: brown;
+	opacity: 0.8;
+	cursor: pointer;
+	border-radius: 10px;
+	margin-bottom: 0;
+	width: 10%;
+	font-size: 20px;
+	padding: 4px;
+}
 
 /*estilos menuAdministrador*/
 .contenedorAdmin{
@@ -322,9 +383,21 @@ h4{
 }
 
 /*estilos para reportes*/
+#fecha{
+	display: none;
+}
+
+#productos{
+	display: none;
+}
+
+#entradasalida{
+	display: none;
+}
 
 .cajasReporte{
 	text-align: center;
+	font-size: 15px;
 }
 
 .contenedorReporte{
@@ -344,9 +417,13 @@ h4{
 	cursor: pointer;
 	border-radius: 10px;
 	margin-bottom: 0;
-	width: 50%;
-	font-size: 20px;
+	width: 15%;
+	font-size: 15px;
 	padding: 10px;
+}
+
+.white-text{
+	color: #fff;
 }
 
 /*Estilos Entrada y Salida*/
