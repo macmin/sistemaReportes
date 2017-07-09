@@ -1,13 +1,11 @@
 <?php
+
 	
 	session_start();
     
-
-   	if( isset( $_SESSION['name'] and isset($_SESSION['userId']) )  ){
+    if( isset( $_SESSION['name'] ) and isset( $_SESSION['userId'] ) ) {
 	
-
-	
-
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +17,9 @@
 		<link rel="stylesheet" href="css/estilos.css">
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/flexboxgrid.min.css">
+		
 		<script src="js/link.js"></script>
+
 	</head>
 	<body>
 		<header>
@@ -74,10 +74,11 @@
 			</form>
 	</body>
 
-<?php
-}else{
-		echo "no hay session";
 
+
+<?php
+	}else{
+   		echo "no hay session";
 	}
 
 ?>

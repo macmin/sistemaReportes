@@ -9,13 +9,13 @@ class PRODUCTOS extends Connection
 	{
         
 	}
-
-	public function insertProduc($ean,$nombre,$desc,$codAlt)
+					
+	public function insertProduc($ean,$nombre,$desc,$codAlt,$userId)
 	{
-		$this-> setQuery("insert into productos ... ");
+		$this-> setQuery("insert into productos(nombre,descripcion,ean,codigoAlt,userInsert) values ('$nombre','$desc','$ean','$codAlt',$userId)");
 		$this-> Ejecutar();
 
-		$this->getIsCorrect();
+		return $this -> getIsCorrect();
 	}
     
 
