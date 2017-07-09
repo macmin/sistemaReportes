@@ -19,8 +19,9 @@ class wsUsuarios
            case 'sigIn':
                 $errors = array();
                 
-                $username = $this -> getPOST('usuario');
-                $pass = $this -> getPOST('password');
+                $username = htmlentities(addslashes($this -> getPOST('usuario') ) );
+                $pass = htmlentities(addslashes($this -> getPOST('password') ) );
+                
                 if(empty($username) )
                     $errors[]= "Falta el campo username";
                 if(empty($pass) )
@@ -37,8 +38,12 @@ class wsUsuarios
                     if($consulta){
                                 
                                 session_start();
-                                $_SESSION["name"] = $username;
+                                $_SESSION["name"] = $consulta[0][0];
+                                $_SESSION["userId"] = $consulta[0][1];
                                 header("location:../menuAdministrador.php");
+                                
+                               //var_dump($consulta);
+
 
 
                     }else{
@@ -56,9 +61,6 @@ class wsUsuarios
 
                 $consulta = $this -> usuario -> getRolesExistentes();
 
-            
-
-                
             
                 $respuesta=[];
 
@@ -87,8 +89,8 @@ class wsUsuarios
 
             case 'addUsuario':
 
-                $nombre = $this-> getPOST('nombre');
-                $app = $this -> getPOST('app');
+                $nombre = htmlentities(addslashes($this-> getPOST('nombre') ) ) ;
+                $app = htmlentities(addslashes( $this -> getPOST('app') ) );
                 $apm = $this-> getPOST('apm');
                 $usuario = $this -> getPOST('usuario');
                 $password = $this -> getPOST('password');
@@ -101,6 +103,8 @@ class wsUsuarios
                     $errors[] = "Falta ingresar los apellidos";
                 if(empty($usuario) || empty($password) ) 
                     $errors[] = "Usuario y password son requeridos";
+                if(! filter_var($email_a, FILTER_VALIDATE_EMAIL))
+                    $errors[] = "usuario tiene formato de correo";
                 if(empty($rol) )
                     $errors[] = "Rol no seleccionado";
 
@@ -140,6 +144,35 @@ class wsUsuarios
                                     );
                         echo json_encode($respuesta);
                 }  
+
+
+
+                break;
+
+            case 'getUsuarios':
+
+                $consultaUsers = $this -> usuario -> getUsuarios();
+
+                if($consultaUsers){
+                            $respuesta = array("Mensaje" => "Usuarios encontrados",
+                                                "codMensaje" => 100,
+                                                "Datos" => $consultaUsers
+                                                );
+
+                        echo json_encode($respuesta);
+                        
+                           
+
+
+                } else {
+                            $respuesta = array("Mensaje" => "¡Error!, no se encontraron los usuarios. ",
+                                    "codMensaje" => 200,
+                                    "Datos" => []
+                                    );
+
+                                 echo json_encode($respuesta);
+                    
+                } 
 
 
 

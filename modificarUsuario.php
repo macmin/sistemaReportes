@@ -86,10 +86,12 @@
             });    
             
         </script>
+
         <br>
         <br>
         <center>
             <button class="botonRegresar" type="button" onclick="javascript:opcionesusuarios();">Regresar</button>
         </center>
+
     </body>
 </html> 

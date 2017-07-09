@@ -13,12 +13,13 @@ class USUARIOS extends Connection
 	public function consultaLogin($username, $pass)
 	{
         $con = sha1($pass);
-		$this -> setQuery("select nombre from users where username='$username' and password='$con'");
+		$this -> setQuery("select nombre,userId  from users where username='$username' and password='$con'");
 		$this -> Ejecutar();
 
 		while($row = $this-> getResult() -> fetch_array() )
          
             $resultados[] = $row;
+
         return $resultados;  
 
     }
@@ -42,6 +43,19 @@ class USUARIOS extends Connection
     	$this ->Ejecutar();
 
     	return $this -> getIsCorrect();
+
+    }
+
+    public function getUsuarios()
+    {
+    	$this -> setQuery("select username, password,nombre,app,apm,statusId from users");
+    	$this -> Ejecutar();
+
+    	while($row = $this-> getResult() -> fetch_array() )
+         
+            $resultados[] = $row;
+        return $resultados;
+
 
     }
 

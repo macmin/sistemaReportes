@@ -1,16 +1,25 @@
-<?php
-	
-	session_start();
+<!DOCTYPE html>
+<html>
+<head>
+	<title>..</title>
+</head>
+<body>
 
-   	if( isset( $_SESSION['name'] ) ){
-	
-	echo "la sesion es:".$_SESSION['name'];
 
-	}else{
-			echo "no hay session";
+	<input type="text" name="codigo" id="codigo">
+	<button id="btn" onclick="ver()">ver </button>
 
-			
-	}
 
-	
-?>
+	<script >
+		
+		function ver(){
+		
+			var codigo = document.getElementById("codigo").value;
+			alert(codigo);
+
+		}
+
+	</script>
+
+</body>
+</html>

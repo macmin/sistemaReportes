@@ -74,7 +74,9 @@
         <h2>Productos<h2>
 				<div class="row around-xs center-xs">
     				<div class="col-xs-4">
+
 						<button class="botonProductos" onclick="javascript:addproductos();">Productos</button>Agregar Producto</button>
+
 					</div>		
 					<div class="col-xs-4">		
 						<button class="botonProductos" onclick="javascript:bajaproductos();">Dar de Baja Producto</button>
@@ -83,11 +85,13 @@
 						<button class="botonProductos" onclick="javascript:addMovimientos();">Agregar Movimiento</button>
 					</div>
 				</div>
+
                  <br>
                 <br>
                 <br>
                 <center>
                      <button class="botonRegresar" type="button" onclick="javascript:menuadministrador();">Regresar</button>
                 </center>
+
     </body>
 </html> 
