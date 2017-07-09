@@ -14,6 +14,7 @@
     	<script type="text/javascript" src="DataTable/vfs_fonts.js"></script>
     	<script type="text/javascript" src="DataTable/buttons.html5.js"></script>
     	<script type="text/javascript" src="DataTable/buttons.print.js"></script>
+        <script src="js/link.js"></script>
     </head>
     <body>
         <header>
@@ -85,5 +86,12 @@
             });    
             
         </script>
+
+        <br>
+        <br>
+        <center>
+            <button class="botonRegresar" type="button" onclick="javascript:opcionesusuarios();">Regresar</button>
+        </center>
+
     </body>
 </html> 

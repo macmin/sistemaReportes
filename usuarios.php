@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
 		<link rel="stylesheet" href="css/estilos.css">
 		<link rel="stylesheet" href="css/font-awesome.min.css">
-
+		<script src="js/link.js"></script>
 		
 		<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 
@@ -34,7 +34,7 @@
 					<br>
 					<br>
 					<br>
-					<button class="boton"><a href="menuAdministrador.php">Inicio</a></button>
+					<button class="boton" type="button" onclick="javascript:opcionesusuarios();">Inicio</button>
 				</center>
 			</div>
 

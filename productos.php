@@ -14,7 +14,8 @@
     	<script type="text/javascript" src="DataTable/vfs_fonts.js"></script>
     	<script type="text/javascript" src="DataTable/buttons.html5.js"></script>
     	<script type="text/javascript" src="DataTable/buttons.print.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
+		<link rel="stylesheet" href="css/flexboxgrid.min.css">
+        <script src="js/link.js"></script>
 	</head>
 	 <body>
         <header>
@@ -29,6 +30,7 @@
         				<th>EAN</th>
         				<th>Nombre</th>
                         <th>Descripcion</th>
+                        <th>Cantidad</th>
         			</tr>	
         		</thead>
         		<tbody>
@@ -72,14 +74,24 @@
         <h2>Productos<h2>
 				<div class="row around-xs center-xs">
     				<div class="col-xs-4">
-						<button class="botonProductos">Agregar Producto</button>
+
+						<button class="botonProductos" onclick="javascript:addproductos();">Productos</button>Agregar Producto</button>
+
 					</div>		
 					<div class="col-xs-4">		
-						<button class="botonProductos">Dar de Baja Producto</button>
+						<button class="botonProductos" onclick="javascript:bajaproductos();">Dar de Baja Producto</button>
 					</div>
 					<div class="col-xs-4">		
-						<button class="botonProductos">Agregar Movimiento</button>
+						<button class="botonProductos" onclick="javascript:addMovimientos();">Agregar Movimiento</button>
 					</div>
 				</div>
+
+                 <br>
+                <br>
+                <br>
+                <center>
+                     <button class="botonRegresar" type="button" onclick="javascript:menuadministrador();">Regresar</button>
+                </center>
+
     </body>
 </html> 

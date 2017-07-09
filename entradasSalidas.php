@@ -15,7 +15,8 @@
     	<script type="text/javascript" src="DataTable/vfs_fonts.js"></script>
     	<script type="text/javascript" src="DataTable/buttons.html5.js"></script>
     	<script type="text/javascript" src="DataTable/buttons.print.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
+		<link rel="stylesheet" href="css/flexboxgrid.min.css">
+        <script src="js/link.js"></script>
 	</head>
 	 <body>
         <header>
@@ -23,7 +24,7 @@
         </header>
         <br>
         <br>
-        <div class="row around-xs center-xs">
+          <div class="row around-xs center-xs">
                     <div class="col-xs-6">
                         <input type="text" class="cajaES alineacionTexto" name="" placeholder="EAN" autofocus="autofocus">
                         <input type="radio" name="registro" class="espaciado" onclick="mostrar()">Registro Manual
@@ -90,6 +91,9 @@
                 });
         	});
         </script>
+        <center>
+          <button class="botonReporte" type="button" onclick="javascript:menuadministrador();">Regresar</button>
+        </center>
 				
     </body>
 </html> 

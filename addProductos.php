@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Adicionar Productos</title>
+		<title>Adicionar Producto</title>
 		<link rel="stylesheet" type="text/css" href="css/estilos.css">
 		<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+
+		<script src="js/link.js"></script>
+
 	</head>
 	<body>
 	<header>
@@ -18,7 +21,12 @@
 		<input type="text" class="cajaTexto" name="txtDesc" >
 		<h2>Codigo Alterno:</h2>
 		<input type="text" class="cajaTexto" id="txtcodAlt">	
-		<button class="boton" id="btnRegistrar">Registrar</button>	
+
+		<button class="boton" id="btnRegistrar">Registrar</button>
+		<br>
+		<br>
+		<button class="boton" type="button" onclick="javascript:productos();">Regresar</button>
+
 	</form>
 
 

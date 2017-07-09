@@ -18,7 +18,8 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
 		<link rel="stylesheet" href="css/estilos.css">
 		<link rel="stylesheet" href="css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
+		<link rel="stylesheet" href="css/flexboxgrid.min.css">
+		<script src="js/link.js"></script>
 	</head>
 	<body>
 		<header>
@@ -45,10 +46,10 @@
 			<form class="contenedorAdmin">
 				<div class="row around-xs center-xs">
     				<div class="col-xs-6">
-						<button class="botonMenu"><a href="productos.php">Productos</button>
+						<button class="botonMenu" type="button" onclick="javascript:productos();">Productos</button>
 					</div>
 					<div class="col-xs-6 center-xs">
-						<button class="botonMenu"><a href="reportes.php">Reportes</a></button>
+						<button class="botonMenu" type="button" onclick="javascript:reportes();">Reportes</button>
 					</div>
 				</div>
 				<br>
@@ -56,10 +57,18 @@
 				<br>
 				<div class="row around-xs center-xs">
     				<div class="col-xs-6">
-						<button class="botonMenu"><a href="configuracion.php">Configuracion</a></button>
+						<button class="botonMenu" type="button" onclick="javascript:configuracion();">Configuracion</button>
 					</div>
 					<div class="col-xs-6 center-xs">
-						<button class="botonMenu"><a href="opcionUsuario.php">Usuario</a></button>
+						<button class="botonMenu" type="button" onclick="javascript:opcionesusuarios();">Usuario</button>
+					</div>
+				</div>
+				<br>
+				<br>
+				<br>
+				<div class="row center-xs">
+    				<div class="col-xs-6">
+							<button class="botonMenu" type="button" onclick="javascript:registrar();">Registrar Productos</button>
 					</div>
 				</div>
 			</form>
