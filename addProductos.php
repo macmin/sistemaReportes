@@ -1,3 +1,10 @@
+<?php
+
+	session_start();
+    
+    if( isset( $_SESSION['name'] ) and isset( $_SESSION['userId'] ) ) {
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -12,13 +19,16 @@
 	<header>
 		<h1>Adicionar Producto</h1>
 	</header>
-	<form class="contenedor">
+
+	<input type="hidden" id="hiddenId" value="<?php echo $_SESSION['userId'];?>">
+
+	<div class="contenedor">
 		<h2>EAN:</h2>
 		<input type="text" class="cajaTexto" id="txtEan">
 		<h2>Nombre:</h2> 
-		<input type="text" class="cajaTexto" name="txtNombre" >
+		<input type="text" class="cajaTexto" id="txtNombre" >
 		<h2>Descripcion:</h2>
-		<input type="text" class="cajaTexto" name="txtDesc" >
+		<input type="text" class="cajaTexto" id="txtDesc" >
 		<h2>Codigo Alterno:</h2>
 		<input type="text" class="cajaTexto" id="txtcodAlt">	
 
@@ -27,7 +37,7 @@
 		<br>
 		<button class="boton" type="button" onclick="javascript:productos();">Regresar</button>
 
-	</form>
+	</div>
 
 
 	<script >
@@ -41,15 +51,17 @@
 				var cajaNombre = $("#txtNombre").val();
 				var cajaDescripcion = $("#txtDesc").val();
 				var cajaCodAlt = $("#txtcodAlt").val();
+				var cajaUserId = $("#hiddenId").val();
 
 				
-				$.post('/ws/wsProductos.PHP',
+				$.post('ws/wsProductos.php',
 					{
 						WS:"addProducto",
 						ean: cajaEan,
 						nombre:cajaNombre,
 						descripcion: cajaDescripcion,
-						codAlt:cajaCodAlt
+						codAlt:cajaCodAlt,
+						userId:cajaUserId
 						
 
 
@@ -68,4 +80,13 @@
 	</script>
 
 	</body>
+
+<?php
+	
+	}else{
+		echo "no hay sesion";
+
+	}
+
+?>
 </html>
