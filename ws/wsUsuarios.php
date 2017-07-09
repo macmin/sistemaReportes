@@ -21,6 +21,7 @@ class wsUsuarios
                 
                 $username = htmlentities(addslashes($this -> getPOST('usuario') ) );
                 $pass = htmlentities(addslashes($this -> getPOST('password') ) );
+                
                 if(empty($username) )
                     $errors[]= "Falta el campo username";
                 if(empty($pass) )
@@ -37,8 +38,12 @@ class wsUsuarios
                     if($consulta){
                                 
                                 session_start();
-                                $_SESSION["name"] = $username;
+                                $_SESSION["name"] = $consulta[0][0];
+                                $_SESSION["userId"] = $consulta[0][1];
                                 header("location:../menuAdministrador.php");
+                                
+                               //var_dump($consulta);
+
 
 
                     }else{

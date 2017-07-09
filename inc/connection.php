@@ -8,7 +8,7 @@
 		private $user = "root";
 		public function getUser(){return $this-> user;}
 		public function setUser($var){$this-> user = $var;}
-		private $pass ="" ;
+		private $pass ="123" ;
 		public function getPass(){return $this-> pass;}
 		public function setPass($var){$this-> pass = $var;}
 	    private $dbName ="reportes";
