@@ -20,13 +20,15 @@
 	</head>
 	 <body>
         <header>
-                <h1>Entradas y salidas</h1>
+                <h1>Entradas</h1>
         </header>
         <br>
         <br>
           <div class="row around-xs center-xs">
                     <div class="col-xs-6">
+
                         <input type="text" class="cajaES alineacionTexto" id="caja" placeholder="EAN" autofocus="autofocus" onkeypress="validar(event)">
+
                         <input type="radio" name="registro" class="espaciado" onclick="mostrar()">Registro Manual
                         <input type="radio" name="registro" class="espaciado" onclick="ocultar()">Registro Automatico
                     </div>      
@@ -55,9 +57,6 @@
         </div>
         <br>
         <br>
-        <center>
-            <button class="botonES">Guardar</button>
-        </center>
         <script type="text/javascript">
         	var table;
         	$(document).ready(function() {
@@ -75,45 +74,71 @@
         				}
         			]
         		});
-                $.post("../WS/wsUsuarios.php",{WS:"getUsuario"},function(res){
-                    table.rows().remove().draw();
-                    $.each(res,function(index,data){
-                        table.row.add([
-                            data.userName,
-                            data.nombre,
-                            data.app,
-                            data.apm,
-                            data.statusId,
-                            data.statusId == 1 ? "Activo" : "Inactivo"
-                        ]);
-                    });
-                    table.rows().draw();
-                });
-        	});
-        </script>
+            });
 
-
-        <script>                    
                 function validar(e) {
-                    
-                    console.log(e.keyCode);
-                    var contador = 0;
-                    tecla = (document.all) ? e.keyCode : e.which;
-                    if (tecla==13)
-                    {
-                        alert('EAN: '+document.getElementById("caja").value );
-                        
-                        document.getElementById("caja").value="";
                    
-                    }
-                    
+                   console.log(e.keyCode);
+                   var contador = 0;
+                   tecla = (document.all) ? e.keyCode : e.which;
+                   if (tecla==13)
+                   {
+                    alert('EAN: '+document.getElementById("caja").value );
+                    var Ean = document.getElementById("caja").value;
+                    $.post('ws/wsProductos.php',{
+                                WS:"addProducto",
+                                ean:Ean
+                                },function(Respuesta){
+                                    table.rows().remove().draw();
+                                        $.each(res,function(index,data){
+                                         table.row.add([
+                                            data.ean,
+                                            data.nombre,
+                                            data.cantidad,
+                                        ]);
+                                    });
+                                    table.rows().draw();    
+                                },"");
 
-              }
+                        document.getElementById("caja").value="";
+                    } 
+                }
+                
+
+            $(function(){
+                $("#botonGuardar").click(function(){
+                    var consulta = $("#tblRespuesta tbody tr");
+                    $.each(consulta,function(index,tr){ 
+                        var cajaEan=tr.children()[0].val();
+                        var cajaNombre=tr.children()[1].val();
+                        var cajaCantidad=tr.children()[2].val();
+
+                        $.post('ws/wsProductos.php',{
+                                WS:"addProducto",
+                                ean:cajaEan,
+                                nombre:cajaNombre,
+                                cantidad:cajaCantidad,  
+                            },function(Respuesta){},"");
+                    });
+                });
+            });
+
             
+
         </script>
-        <center>
-          <button class="botonReporte" type="button" onclick="javascript:menuadministrador();">Regresar</button>
-        </center>
+
+        <div class="row around-xs center-xs">
+            <div class="col-xs-6">
+                <button class="botonReporte" type="button" onclick="javascript:menuadministrador();">Regresar</button>
+            </div>
+            <div class="col-xs-6">
+                <button class="botonReporte" type="button" id="botonGuardar" >Guardar</button>
+            </div>
+        </div>    
+
+
+
+       
 				
     </body>
 </html> 
