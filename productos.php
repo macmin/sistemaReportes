@@ -74,6 +74,7 @@
                             data.nombre,
                             data.descripcion,
                             data.codigoAlt,
+                            data.cantidad
                             
 
                             
