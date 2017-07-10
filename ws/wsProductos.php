@@ -114,6 +114,44 @@ class wsProductos
                 
                 break;
 
+            case 'getConsulta':
+
+                $Ean= $this-> getPOST("ean"); 
+
+                $errors=array();
+
+
+                if(empty($BuscarEan))
+                    $errors[]="No ingresaste el codigo de barras";
+
+                if(count($errors) == 0 ){ 
+
+                    $consulta = $this-> producto -> getConsultaEan($Ean);
+                
+
+                    if($consulta) {
+
+                                $respuesta = array("Mensaje" => "Producto obtenido",
+                                                    "codMensaje" => 100,
+                                                    "Datos" => $consulta
+                                                    );
+
+                                     echo json_encode($respuesta);
+                    }else {
+
+                            $respuesta = array("Mensaje" => "¡Error!, no existe el producto ",
+                                        "codMensaje" => 200,
+                                        "Datos" => []
+                                        );
+
+                                     echo json_encode($respuesta);
+                    }
+
+                }
+
+
+                break;
+
             case 'N0':
 
                 $res= array ("Mensaje" => "El webservice no puede estar vacio", "codMensaje" => 200);
