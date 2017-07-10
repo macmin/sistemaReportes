@@ -11,6 +11,7 @@
 		<title>Adicionar Producto</title>
 		<link rel="stylesheet" type="text/css" href="css/estilos.css">
 		<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+		<link rel="stylesheet" href="css/flexboxgrid.min.css">
 
 		<script src="js/link.js"></script>
 
@@ -22,20 +23,38 @@
 
 	<input type="hidden" id="hiddenId" value="<?php echo $_SESSION['userId'];?>">
 
-	<div class="contenedor">
-		<h2>EAN:</h2>
-		<input type="text" class="cajaTexto" id="txtEan">
-		<h2>Nombre:</h2> 
-		<input type="text" class="cajaTexto" id="txtNombre" >
-		<h2>Descripcion:</h2>
-		<input type="text" class="cajaTexto" id="txtDesc" >
-		<h2>Codigo Alterno:</h2>
-		<input type="text" class="cajaTexto" id="txtcodAlt">	
+	<div class="contenedorProductos">
+		<div class="row around-xs center-xs">
+    		<div class="col-xs-6">
+				<h2>EAN:</h2>
+				<input type="text" class="cajaTexto" id="txtEan">
+			</div>
+			<div class="col-xs-6">
+				<h2>Codigo Alterno:</h2>
+				<input type="text" class="cajaTexto" id="txtcodAlt">
+			</div>
+		</div>
 
-		<button class="boton" id="btnRegistrar">Registrar</button>
+		<div class="row around-xs center-xs">
+    		<div class="col-xs-6">
+				<h2>Nombre:</h2> 
+				<input type="text" class="cajaTexto" id="txtNombre" >
+			</div>
+			<div class="col-xs-6">
+				<h2>Descripcion:</h2>
+				<input type="text" class="cajaTexto" id="txtDesc" >
+			</div>
+		</div>
 		<br>
 		<br>
-		<button class="boton" type="button" onclick="javascript:productos();">Regresar</button>
+		<div class="row around-xs center-xs">
+    		<div class="col-xs-6">
+				<button class="boton" type="button" onclick="javascript:productos();">Regresar</button>
+			</div>
+			<div class="col-xs-6">
+				<button class="boton" id="btnRegistrar">Registrar</button>	
+			</div>
+		<div>
 
 	</div>
 
@@ -89,4 +108,5 @@
 	}
 
 ?>
+
 </html>
