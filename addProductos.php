@@ -27,7 +27,7 @@
 		<div class="row around-xs center-xs">
     		<div class="col-xs-6">
 				<h2>EAN:</h2>
-				<input type="text" class="cajaTexto" id="txtEan">
+				<input type="text" class="cajaTexto" id="txtEan" required>
 			</div>
 			<div class="col-xs-6">
 				<h2>Codigo Alterno:</h2>
@@ -89,6 +89,9 @@
 						alert(Respuesta.Mensaje);
 						if(Respuesta.codMensaje == 100)
 							window.location =window.location;
+						else if(Respuesta.codMensaje==200)
+							alert(Respuesta.Datos);
+
 
 					},"json");
 

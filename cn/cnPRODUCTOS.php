@@ -42,9 +42,21 @@ class PRODUCTOS extends Connection
             $resultados[] = $row;
 
         return $resultados; 
- 
+    }
 
-	}
+    public function getConsultaEan($Ean)
+    {
+    	$this-> setQuery("select ean,nombre from productos where ean='$ean' ");
+    	$this-> Ejecutar();
+    	$resultados=[];
+		while($row = $this-> getResult() -> fetch_array() )
+         
+            $resultados[] = $row;
+
+        return $resultados; 
+
+
+    }
     
 
 
