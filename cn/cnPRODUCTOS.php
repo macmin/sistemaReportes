@@ -44,17 +44,28 @@ class PRODUCTOS extends Connection
         return $resultados; 
     }
 
-    public function getConsultaEan($Ean)
+    public function getConsultaEan($Ean,$cantidad)
     {
-    	$this-> setQuery("select ean,nombre from productos where ean='$ean' ");
+    	$this-> setQuery("select productoId,ean,nombre,0 cantidad from productos where ean='$Ean' ");
     	$this-> Ejecutar();
     	$resultados=[];
-		while($row = $this-> getResult() -> fetch_array() )
+		while($row = $this-> getResult() -> fetch_array() ){
          
             $resultados[] = $row;
+        }
+
+       $resultados[0]["cantidad"]= $cantidad;
 
         return $resultados; 
 
+
+    }
+    public function insertMovimiento($prodId,$tipoM,$cantidad,$user)
+    {
+    	$this -> setQuery("insert into movimientos(productoId,tipoMovimiento,cantidad,userInsert) values($prodId,$tipoM,$cantidad,$user)");
+    	$this -> Ejecutar();
+
+    	return true;
 
     }
     
