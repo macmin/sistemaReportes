@@ -22,6 +22,7 @@
 	</header>
 
 	<input type="hidden" id="hiddenId" value="<?php echo $_SESSION['userId'];?>">
+
 	<div class="contenedorProductos">
 		<div class="row around-xs center-xs">
     		<div class="col-xs-6">
@@ -54,6 +55,7 @@
 				<button class="boton" id="btnRegistrar">Registrar</button>	
 			</div>
 		<div>
+
 	</div>
 
 

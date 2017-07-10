@@ -2,26 +2,29 @@
 
 include_once("../cn/cnPRODUCTOS.php");
 
+
 class wsProductos
 {
 	protected $producto;
-	protected $WS;
+    protected $WS;
 
-	public function __construct()
-	{ 
-		
-        header('Content-Type: application/json');
-		$this-> producto = new PRODUCTOS();
-        $this-> WS = $this->getPOST("WS");
+    public function __construct()
+    { 
         
+        header('Content-Type: application/json');
+        $this-> producto = new PRODUCTOS();
+        $this-> WS = $this -> getPOST("WS");
+
         switch ($this-> WS) {
 
-           case 'addProducto':
+             case 'addProducto':
 
-                $ean = $this-> getPOST("ean");
+                $ean = $this -> getPOST("ean");
                 $nombre = $this-> getPOST("nombre");
-                $desc = $this -> getPOST("descipcion");
+                $desc = $this -> getPOST("descripcion");
                 $codAlt = $this -> getPOST("codAlt");
+                $userId = $this -> getPOST("userId");
+
 
                 $errors = array();
 
@@ -33,63 +36,109 @@ class wsProductos
                     $errors[] = "campo descripcion requerido";
                 if(empty($codAlt))
                     $errors[]= "campo codigo alterno requerido";
-                if(count($errors) == 0){
+                if(empty($userId))
+                    $errors = "fatal error";
 
-                    $ingresar = $this -> producto -> insertProduc($ean,$nombre,$desc,$codAlt);
+                $respuesta=[];
 
-                    $respuesta[];
+                if(count($errors) == 0 ){
 
+                    $ingresar = $this -> producto -> insertProduc($ean,$nombre,$desc,$codAlt,$userId);
+                    
                     if($ingresar){
-
-                         $respuesta = array("Mensaje" => "Producto Ingresado",
+                                    $respuesta = array("Mensaje" => "Producto registrado",
                                                 "codMensaje" => 100,
                                                 "Datos" => []
                                                 );
 
-                        echo json_encode($respuesta);
-
-                    }else{
-
-                         $respuesta = array("Mensaje" => "Producto No ingresado",
-                                                "codMensaje" => 200,
-                                                "Datos" => []
-                                                );
-
-                        echo json_encode($respuesta);
+                                 echo json_encode($respuesta);
+                        
+                           
 
 
+                    } else {
+                            $respuesta = array("Mensaje" => "¡Error!, no inserto el producto ",
+                                    "codMensaje" => 200,
+                                    "Datos" => []
+                                    );
 
-                    }
+                                 echo json_encode($respuesta);
+                    } 
+                    
                 }
 
- 
+                if(isset($errors) and count($errors) > 0 ){
+
+                    
+                    $respuesta = array("Mensaje" => "Error",
+                                    "codMensaje" => 200,
+                                    "Datos" => $errors
+                                    );
+                        echo json_encode($respuesta);
+                }  
+                
+
+
+
                 
                 break;
-           
-           
-        	case 'N0':
 
-        		$res= array ("Mensaje" => "El webservice no puede estar vacio", "codMensaje" => 200);
-        		echo json_encode($res);
+            case 'getProductos':
 
-        		break;
-        	
-        	default:
+                $consulta = $this -> producto -> getProductosT();
 
-        		$res= array ("Mensaje" => "El webservice no existe", "codMensaje" => 200 );
-        		echo json_encode($res);
-        		break;
+                $respuesta=[];
+
+                if($consulta) {
+
+                            $respuesta = array("Mensaje" => "Productos obtenidos",
+                                                "codMensaje" => 100,
+                                                "Datos" => $consulta
+                                                );
+
+                                 echo json_encode($respuesta);
+                        
+
+                }else {
+
+                        $respuesta = array("Mensaje" => "¡Error!, no hay productos ",
+                                    "codMensaje" => 200,
+                                    "Datos" => []
+                                    );
+
+                                 echo json_encode($respuesta);
+
+
+                }
+
+                
+                break;
+
+            case 'N0':
+
+                $res= array ("Mensaje" => "El webservice no puede estar vacio", "codMensaje" => 200);
+                echo json_encode($res);
+
+                break;
+            
+            default:
+
+                $res= array ("Mensaje" => "El webservice no existe", "codMensaje" => 200 );
+                echo json_encode($res);
+                break;
         }
+        
+        
 
 
-	}
+    }
 
-	public function getPOST($var)
-	{
-    	if(isset($_POST[$var]) )
-       		return $_POST[$var];
-    	else
-    		return "N0";
+    public function getPOST($var)
+    {
+        if(isset($_POST[$var]) )
+            return $_POST[$var];
+        else
+            return "N0";
     }
 
    
