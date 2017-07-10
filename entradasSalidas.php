@@ -26,7 +26,9 @@
         <br>
           <div class="row around-xs center-xs">
                     <div class="col-xs-6">
-                        <input type="text" class="cajaES alineacionTexto"  id="caja" placeholder="EAN" autofocus="autofocus" onkeypress="validar(event)">
+
+                        <input type="text" class="cajaES alineacionTexto" id="caja" placeholder="EAN" autofocus="autofocus" onkeypress="validar(event)">
+
                         <input type="radio" name="registro" class="espaciado" onclick="mostrar()">Registro Manual
                         <input type="radio" name="registro" class="espaciado" onclick="ocultar()">Registro Automatico
                     </div>      
@@ -124,6 +126,7 @@
             
 
         </script>
+
         <div class="row around-xs center-xs">
             <div class="col-xs-6">
                 <button class="botonReporte" type="button" onclick="javascript:menuadministrador();">Regresar</button>
@@ -132,6 +135,10 @@
                 <button class="botonReporte" type="button" id="botonGuardar" >Guardar</button>
             </div>
         </div>    
+
+
+
+       
 				
     </body>
 </html> 

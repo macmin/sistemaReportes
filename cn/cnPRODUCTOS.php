@@ -17,8 +17,9 @@ class PRODUCTOS extends Connection
 		$this-> setQuery("insert into productos(nombre,descripcion,ean,codigoAlt,userInsert) values ('$nombre','$desc','$ean','$codAlt',$userId)");
 		$this-> Ejecutar();
 
-		$this ->setQuery("select MAX(productoId) as prodId from productos ");
+		/*$this ->setQuery("select MAX(productoId) as prodId from productos ");
 		$this ->Ejecutar();
+
 		while($row = $this -> getResult() -> fetch_array() )
 			$res = $row['prodId'];
 		
@@ -26,16 +27,16 @@ class PRODUCTOS extends Connection
 		$this -> setQuery("insert into movimientos(productoId,tipoMovimiento,cantidad,userInsert) values ($res,1,1,$userId)");
 		$this -> Ejecutar();
 
-
+        */
 		return $this -> getIsCorrect();
 	}
 
 	public function getProductosT()
 	{
 
-		$this -> setQuery("select nombre,descripcion,ean,codigoAlt from productos");
+		$this -> setQuery("select p.nombre, p.descripcion,p.ean,p.codigoAlt from productos p");
 		$this -> Ejecutar();
-
+		$resultados=[];
 		while($row = $this-> getResult() -> fetch_array() )
          
             $resultados[] = $row;
