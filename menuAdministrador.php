@@ -38,7 +38,7 @@
     		<center>
 	        	<br>
 	        	<form>
-	            <a href="login.php" class="linkFormato text-black">Salir</a>
+	            <a href="cerrar_session.php" class="linkFormato text-black">Salir</a>
 	       		</form>
     		</center>
 		</header>

@@ -22,6 +22,7 @@
     	<script type="text/javascript" src="DataTable/vfs_fonts.js"></script>
     	<script type="text/javascript" src="DataTable/buttons.html5.js"></script>
     	<script type="text/javascript" src="DataTable/buttons.print.js"></script>
+
 		<link rel="stylesheet" href="css/flexboxgrid.min.css">
         <script src="js/link.js"></script>
 	</head>
@@ -38,6 +39,7 @@
         				<th>EAN</th>
         				<th>Nombre</th>
                         <th>Descripcion</th>
+                        <th>CodigoAlterno</th>
                         <th>Cantidad</th>
         			</tr>	
         		</thead>
@@ -63,22 +65,26 @@
         				}
         			]
         		});
-                $.post("../WS/wsUsuarios.php",{WS:"getUsuario"},function(res){
+
+                $.post("ws/wsProductos.php",{WS:"getProductos"},function(res){
                     table.rows().remove().draw();
-                    $.each(res,function(index,data){
+                    $.each(res.Datos,function(index,data){
                         table.row.add([
-                            data.userName,
+                            data.ean,
                             data.nombre,
-                            data.app,
-                            data.apm,
-                            data.statusId,
-                            data.statusId == 1 ? "Activo" : "Inactivo"
+                            data.descripcion,
+                            data.codigoAlt,
+                            
+
+                            
                         ]);
                     });
                     table.rows().draw();
+                    
                 });
         	});
         </script>
+
         <h2>Productos<h2>
 				<div class="row around-xs center-xs">
     				<div class="col-xs-4">

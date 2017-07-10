@@ -39,7 +39,7 @@ class wsProductos
                 if(empty($userId))
                     $errors = "fatal error";
 
-                $res=[];
+                $respuesta=[];
 
                 if(count($errors) == 0 ){
 
@@ -83,9 +83,37 @@ class wsProductos
                 
                 break;
 
-          
-           
-           
+            case 'getProductos':
+
+                $consulta = $this -> producto -> getProductosT();
+
+                $respuesta=[];
+
+                if($consulta) {
+
+                            $respuesta = array("Mensaje" => "Productos obtenidos",
+                                                "codMensaje" => 100,
+                                                "Datos" => $consulta
+                                                );
+
+                                 echo json_encode($respuesta);
+                        
+
+                }else {
+
+                        $respuesta = array("Mensaje" => "¡Error!, no hay productos ",
+                                    "codMensaje" => 200,
+                                    "Datos" => []
+                                    );
+
+                                 echo json_encode($respuesta);
+
+
+                }
+
+                
+                break;
+
             case 'N0':
 
                 $res= array ("Mensaje" => "El webservice no puede estar vacio", "codMensaje" => 200);
