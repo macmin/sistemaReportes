@@ -26,7 +26,7 @@
         <br>
           <div class="row around-xs center-xs">
                     <div class="col-xs-6">
-                        <input type="text" class="cajaES alineacionTexto" name="" placeholder="EAN" autofocus="autofocus">
+                        <input type="text" class="cajaES alineacionTexto" id="caja" placeholder="EAN" autofocus="autofocus" onkeypress="validar(event)">
                         <input type="radio" name="registro" class="espaciado" onclick="mostrar()">Registro Manual
                         <input type="radio" name="registro" class="espaciado" onclick="ocultar()">Registro Automatico
                     </div>      
@@ -90,6 +90,26 @@
                     table.rows().draw();
                 });
         	});
+        </script>
+
+
+        <script>                    
+                function validar(e) {
+                    
+                    console.log(e.keyCode);
+                    var contador = 0;
+                    tecla = (document.all) ? e.keyCode : e.which;
+                    if (tecla==13)
+                    {
+                        alert('EAN: '+document.getElementById("caja").value );
+                        
+                        document.getElementById("caja").value="";
+                   
+                    }
+                    
+
+              }
+            
         </script>
         <center>
           <button class="botonReporte" type="button" onclick="javascript:menuadministrador();">Regresar</button>

@@ -19,6 +19,7 @@ class PRODUCTOS extends Connection
 
 		$this ->setQuery("select MAX(productoId) as prodId from productos ");
 		$this ->Ejecutar();
+
 		while($row = $this -> getResult() -> fetch_array() )
 			$res = $row['prodId'];
 		
@@ -33,9 +34,9 @@ class PRODUCTOS extends Connection
 	public function getProductosT()
 	{
 
-		$this -> setQuery("select nombre,descripcion,ean,codigoAlt from productos");
+		$this -> setQuery("select p.nombre,p.descripcion,p.ean,p.codigoAlt,m.cantidad from productos p join movimientos m on p.productoId=m.productoId");
 		$this -> Ejecutar();
-
+		$resultados=[];
 		while($row = $this-> getResult() -> fetch_array() )
          
             $resultados[] = $row;
