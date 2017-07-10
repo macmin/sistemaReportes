@@ -40,7 +40,7 @@
         				<th>Nombre</th>
                         <th>Descripcion</th>
                         <th>CodigoAlterno</th>
-                        <th>Cantidad</th>
+                        
         			</tr>	
         		</thead>
         		<tbody>
@@ -74,8 +74,7 @@
                             data.nombre,
                             data.descripcion,
                             data.codigoAlt,
-                            data.cantidad
-                            
+
 
                             
                         ]);
