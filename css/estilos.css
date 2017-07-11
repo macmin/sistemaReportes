@@ -33,6 +33,10 @@ header{
 
 /*estilos para data table*/
 
+.colortitulo{
+	background: #e0e0e0;
+}
+
 #tblRespuesta{
 	 width: 96%;
 	 text-align: center;
@@ -180,17 +184,21 @@ header{
 }
 
 .botonRegresar{
-	background: linear-gradient(#FFDA63, #FFB940);
+	background:#006898;
 	border: 0;
-	color: brown;
-	opacity: 0.8;
+	color: white;
 	cursor: pointer;
-	border-radius: 10px;
+	border-radius: 0.3em;
 	margin-bottom: 0;
 	width: 10%;
 	font-size: 20px;
 	padding: 4px;
 }
+
+.botonRegresar:hover{
+	transform: scale(0.95)
+}
+
 
 /*estilos menuAdministrador*/
 
@@ -216,6 +224,7 @@ header{
 
 .fondo  {
     background-image: url("css/fondo.jpg");
+   
 }
 
 /*-----estilos ventana con datos-----*/
@@ -337,16 +346,20 @@ header{
 }
 
 .botonProductos{
-	background: linear-gradient(#FFDA63, #FFB940);
+	background:#006898;
 	border: 0;
-	color: brown;
+	color: white;
 	opacity: 0.8;
 	cursor: pointer;
-	border-radius: 10px;
+	border-radius: 0.3em;
 	margin-bottom: 0;
-	width: 40%;
+	width: 70%;
 	font-size: 15px;
 	padding: 10px;
+}
+
+.botonProductos:hover{
+	transform: scale(0.95);
 }
 
 .botonBuscar:hover{
