@@ -1,17 +1,4 @@
-/**
- * Oculta un boton dependiendo del radio button seleccionado
- * @Return void
- */
-function mostrar () {
-	document.getElementById('registrar').style.visibility = 'visible';
-}
-/**
- * Oculta el elemento que tenga el id registrar
- * @Return void
-*/
-function ocultar () {
-	document.getElementById('registrar').style.visibility='hidden';
-}
+
 /**
  * Oculta los elementos que tengan el id  productos , entradasalida 
  * y muestra el elemento con el id fecha 
