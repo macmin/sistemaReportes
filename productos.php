@@ -85,21 +85,30 @@
         	});
         </script>
 
-        <h2>Productos<h2>
+        <br>
+        <br>
+        <br>
 				<div class="row around-xs center-xs">
-    				<div class="col-xs-4">
+    				<div class="col-xs-6">
 
-						<button class="botonProductos" onclick="javascript:addproductos();">Productos</button>Agregar Producto</button>
+					<button class="botonProductos" onclick="javascript:addproductos();">Adicionar Producto</button>
 
 					</div>		
-					<div class="col-xs-4">		
+					<div class="col-xs-6">		
 						<button class="botonProductos" onclick="javascript:bajaproductos();">Dar de Baja Producto</button>
 					</div>
-					<div class="col-xs-4">		
-						<button class="botonProductos" onclick="javascript:addMovimientos();">Agregar Movimiento</button>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="row around-xs center-xs">
+					<div class="col-xs-6">		
+						<button class="botonProductos" onclick="javascript:addEntrada();"> Adicionar Entrada</button>
 					</div>
-				</div>
-
+                    <div class="col-xs-6">      
+                        <button class="botonProductos" onclick="javascript:addSalida();">Adicionar Salida</button>
+                    </div>
+                </div>
                  <br>
                 <br>
                 <br>
@@ -109,11 +118,11 @@
 
     </body>
 
-<?php
+<?php 
     }else{
         echo "no hay sesion";
     }
 
-?>
+?> 
 
 </html> 

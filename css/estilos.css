@@ -187,7 +187,7 @@ h4{
 
 /*estilos menuAdministrador*/
 .contenedorAdmin{
-	width: 80%;
+	width: 40%;
 	margin: auto;
 	background-color: #3D8C99;
 	padding: 30px;
@@ -242,7 +242,7 @@ h4{
 	cursor: pointer;
 	border-radius: 20px;
 	margin-bottom: 0;
-	width: 80%;
+	width: 40%;
 	font-size: 20px;
 	padding: 10px;
 }
