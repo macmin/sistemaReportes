@@ -1,10 +1,10 @@
-<?php
-
+<!--<?php
+/*
     session_start();
     
     if( isset( $_SESSION['name'] ) and isset( $_SESSION['userId'] ) ) {
-
-?>
+*/
+?>-->
 
 <!DOCTYPE html>
 <html>
@@ -22,20 +22,38 @@
     	<script type="text/javascript" src="DataTable/vfs_fonts.js"></script>
     	<script type="text/javascript" src="DataTable/buttons.html5.js"></script>
     	<script type="text/javascript" src="DataTable/buttons.print.js"></script>
-
 		<link rel="stylesheet" href="css/flexboxgrid.min.css">
         <script src="js/link.js"></script>
 	</head>
 	 <body>
         <header>
-                <h1>Productos</h1>
+                <h1 class="encabezado">Productos</h1>
         </header>
+        <br>
+        <br>
+        <div class="row around-xs center-xs">
+            <div class="col-xs-3">
+                <button class="botonProductos" onclick="javascript:addproductos();">Adicionar Producto</button>
+            </div>      
+            <div class="col-xs-3">      
+                <button class="botonProductos" onclick="javascript:bajaproductos();">Dar de Baja Producto</button>
+            </div>
+            <div class="col-xs-3">      
+                <button class="botonProductos" onclick="javascript:addEntrada();"> Adicionar Entrada</button>
+            </div>
+            <div class="col-xs-3">      
+                <button class="botonProductos" onclick="javascript:addSalida();">Adicionar Salida</button>
+            </div>
+
+        </div>
+        <br>
+        <br>
         <br>
         <br>
         <div>
         	<table id='tblRespuesta'>
         		<thead>
-        			<tr>
+        			<tr class="colortitulo">
         				<th>EAN</th>
         				<th>Nombre</th>
                         <th>Descripcion</th>
@@ -88,41 +106,20 @@
         <br>
         <br>
         <br>
-				<div class="row around-xs center-xs">
-    				<div class="col-xs-6">
-
-					<button class="botonProductos" onclick="javascript:addproductos();">Adicionar Producto</button>
-
-					</div>		
-					<div class="col-xs-6">		
-						<button class="botonProductos" onclick="javascript:bajaproductos();">Dar de Baja Producto</button>
-					</div>
-                </div>
-                <br>
-                <br>
-                <br>
-                <div class="row around-xs center-xs">
-					<div class="col-xs-6">		
-						<button class="botonProductos" onclick="javascript:addEntrada();"> Adicionar Entrada</button>
-					</div>
-                    <div class="col-xs-6">      
-                        <button class="botonProductos" onclick="javascript:addSalida();">Adicionar Salida</button>
-                    </div>
-                </div>
+        </div>
                  <br>
-                <br>
-                <br>
                 <center>
                      <button class="botonRegresar" type="button" onclick="javascript:menuadministrador();">Regresar</button>
                 </center>
 
     </body>
-
-<?php 
+<!--
+<?php
+/* 
     }else{
         echo "no hay sesion";
     }
-
+*/
 ?> 
-
+-->
 </html> 
