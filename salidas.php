@@ -202,7 +202,7 @@
 
         <div class="row around-xs center-xs">
             <div class="col-xs-6">
-                <button class="botonReporte" type="button" onclick="javascript:menuadministrador();">Regresar</button>
+                <button class="botonReporte" type="button" onclick="javascript:productos();">Regresar</button>
             </div>
             <div class="col-xs-6">
                 <button class="botonReporte" type="button" id="botonGuardar" >Guardar</button>
