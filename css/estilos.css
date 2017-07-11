@@ -5,6 +5,16 @@
 	box-sizing: border-box; 
 }
 
+header{
+	width: 100%;
+	height: 50px;
+	background-color: #006898;
+}
+
+.margen{
+	padding-left: 0px;
+    padding-right: 0px;
+}
 .alineacionTexto{
 	text-align: center;
 }
@@ -71,42 +81,38 @@
 }
 
 /*estilos login*/
-header{
-	width: 100%;
-	height: 50px;
-	background-color: #008096;
+
+.encabezado{
+	text-align:center;
+	color:white;
+	font:bold;
+	font-size: 2.3em;
+	padding-top: 5px;
 }
 
-h1{
+.titutloFormulario{
 	text-align: center;
-	color: #fff;
+	color: #006896;
+	font:bold;
+	font-size: 2.3em;
 	padding-top: 5px;
 }
 
 .contenedor{
 	width: 450px;
-	margin: auto;
-	background-color: #3D8C99;
 	padding: 30px;
-	border: 1px solid rgba(0,0,0,0.9);
+	border-radius: 0.3em;
+	border: 1px solid #bdbdbd;
 	margin-top: 50px;
 }
 
-.contenedor a{
-	color: brown;
-	text-decoration: none;
+.margenes{
+	padding-left: 0px; 
+	padding-right: 0px;
 }
 
-h2{
-	text-align: center;
-	margin-bottom: 20px;
-	color: #fff; 
-}
-
-h4{
-	text-align: center;
-	margin-bottom: 9px;
-	color: #fff; 
+.logo{
+	margin-top: 10em;
 }
 
 .cajaTexto{
@@ -115,15 +121,20 @@ h4{
 	padding: 10px;
 	margin: 20px 0;
 	font-size: 20px;
+	border-radius: 0.3em;
+}
+.texto{
+	text-align: center;
+
 }
 
 .boton{
 	background: linear-gradient(#FFDA63, #FFB940);
 	border: 0;
-	color: brown;
-	opacity: 0.8;
+	background: #006898;
+	color:white;
 	cursor: pointer;
-	border-radius: 20px;
+	border-radius: 0.3em;
 	margin-bottom: 0;
 	width: 100%;
 	font-size: 20px;
@@ -131,11 +142,7 @@ h4{
 }
 
 .boton:hover{
-	opacity: 1;
-}
-
-.boton:active{
-	transform: scale(0.95);
+	transform: scale(0.95)
 }
 
 @media(max-width: 480px){
@@ -186,13 +193,14 @@ h4{
 }
 
 /*estilos menuAdministrador*/
+
 .contenedorAdmin{
 	width: 40%;
 	margin: auto;
-	background-color: #3D8C99;
+	background-color:white;
 	padding: 30px;
-	border: 1px solid rgba(0,0,0,0.9);
 	margin-top: 50px;
+	border-radius: 0.3em;
 }
 
 .contenedorAdmin a{
@@ -205,6 +213,11 @@ h4{
 	left: 90%;
 	cursor: pointer;
 }
+
+.fondo  {
+    background-image: url("css/fondo.jpg");
+}
+
 /*-----estilos ventana con datos-----*/
 
     .cerrar{
@@ -227,34 +240,27 @@ h4{
     }
     #ventana1{
         z-index: 10;
-        right: 20%;
-        top: 10%;
+        right: 0%;
+        top: 7.5%;
         background-color: rgba(256,256,256,0.98);
     }
 
 /*fin de estilos de ventana*/
     
 .botonMenu{
-	background: linear-gradient(#FFDA63, #FFB940);
+	background:#006898;
 	border: 0;
-	color: brown;
-	opacity: 0.8;
+	color: white;
 	cursor: pointer;
-	border-radius: 20px;
+	border-radius: 0.3em;
 	margin-bottom: 0;
 	width: 40%;
 	font-size: 20px;
 	padding: 10px;
 }
-
 .botonMenu:hover{
-	opacity: 1;
+	transform: scale(0.95)
 }
-
-.botonMenu:active{
-	transform: scale(0.95);
-}
-
 .alineacionMenu{
 	display:inline-block;
 }
