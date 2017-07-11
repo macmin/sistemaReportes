@@ -114,26 +114,30 @@ class wsProductos
                 
                 break;
 
-            case 'getConsulta':
+            case 'consultaEan':
 
                 $Ean= $this-> getPOST("ean"); 
+                $cantidad = $this->getPOST("cantidad");
+
 
                 $errors=array();
 
 
-                if(empty($BuscarEan))
+                if(empty($Ean))
                     $errors[]="No ingresaste el codigo de barras";
 
-                if(count($errors) == 0 ){ 
+                if(count($errors) == 0  ){ 
 
-                    $consulta = $this-> producto -> getConsultaEan($Ean);
+                    $consulta = $this-> producto -> getConsultaEan($Ean,$cantidad);
                 
 
                     if($consulta) {
 
+                    			 
                                 $respuesta = array("Mensaje" => "Producto obtenido",
                                                     "codMensaje" => 100,
                                                     "Datos" => $consulta
+                                                    //"Cantidad" =>$cantidad
                                                     );
 
                                      echo json_encode($respuesta);
@@ -149,8 +153,53 @@ class wsProductos
 
                 }
 
+                if(isset($errors) and count($errors) > 0 ){
+
+                    
+                    $respuesta = array("Mensaje" => "Error",
+                                    "codMensaje" => 200,
+                                    "Datos" => $errors
+                                    );
+                        echo json_encode($respuesta);
+                }  
+
 
                 break;
+
+            case 'addMovimiento':
+
+            	$prodId = $this -> getPOST("productoId");
+            	$tipoM= $this-> getPOST("tipoM");
+            	$cantidad = $this -> getPOST("cantidad");
+            	$user = $this -> getPOST("user");
+
+
+            	$movimiento = $this -> producto -> insertMovimiento($prodId,$tipoM,$cantidad,$user);
+
+                if($movimiento) {
+
+                    			 
+                                $respuesta = array("Mensaje" => "Entrada de productos correcta",
+                                                    "codMensaje" => 100,
+                                                    "Datos" => []
+                                                    //"Cantidad" =>$cantidad
+                                                    );
+
+                                     echo json_encode($respuesta);
+                    }else {
+
+                            $respuesta = array("Mensaje" => "¡Error!, no se registro la entrada ",
+                                        "codMensaje" => 200,
+                                        "Datos" => []
+                                        );
+
+                                     echo json_encode($respuesta);
+                }
+                
+
+
+
+            	break;
 
             case 'N0':
 

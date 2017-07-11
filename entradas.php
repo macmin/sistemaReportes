@@ -34,7 +34,7 @@
                     </div>      
                     <div class="col-xs-6">      
                         Cantidad:
-                        <input type="text" class="cajaES alineacionTexto" name="" placeholder="0">
+                        <input type="text" class="cajaES alineacionTexto" id="txtCantidad" placeholder="0">
                         <button class="botonES" id="registrar">Registrar</button>
                     </div>
                 </div>
@@ -46,8 +46,9 @@
         	<table id='tblRespuesta'>
         		<thead>
         			<tr>
-        				<th>EAN</th>
+        				<th>Id</th>
         				<th>Nombre</th>
+        				<th>Ean</th>
                         <th>Cantidad</th>
         			</tr>	
         		</thead>
@@ -85,19 +86,29 @@
                    {
                     alert('EAN: '+document.getElementById("caja").value );
                     var Ean = document.getElementById("caja").value;
+                    var cajaCantidad = document.getElementById("txtCantidad").value;
                     $.post('ws/wsProductos.php',{
-                                WS:"addProducto",
-                                ean:Ean
+                                WS:"consultaEan",
+                                ean:Ean,
+                                cantidad:cajaCantidad
                                 },function(Respuesta){
-                                    table.rows().remove().draw();
-                                        $.each(res,function(index,data){
-                                         table.row.add([
-                                            data.ean,
-                                            data.nombre,
-                                            data.cantidad,
-                                        ]);
-                                    });
-                                    table.rows().draw();    
+
+	                                    //table.rows().remove().draw();
+	                                        $.each(Respuesta.Datos,function(index,data){
+		                                         table.row.add([
+		                                         	data.productoId,
+		                                            data.ean,
+		                                            data.nombre,
+		                                            data.cantidad
+		                                            
+		                                        ]);
+
+	                                        
+
+		                                    });
+		                                    table.rows().draw();    
+	                                
+
                                 },"");
 
                         document.getElementById("caja").value="";
@@ -107,18 +118,31 @@
 
             $(function(){
                 $("#botonGuardar").click(function(){
+
                     var consulta = $("#tblRespuesta tbody tr");
+
                     $.each(consulta,function(index,tr){ 
-                        var cajaEan=tr.children()[0].val();
-                        var cajaNombre=tr.children()[1].val();
-                        var cajaCantidad=tr.children()[2].val();
+                    	
+                    	console.log(consulta);
+
+                    	var cajaId = tr.children[0].textContent;
+                        var cajaCantidad=tr.children[3].textContent;
+
+                        
 
                         $.post('ws/wsProductos.php',{
-                                WS:"addProducto",
-                                ean:cajaEan,
-                                nombre:cajaNombre,
-                                cantidad:cajaCantidad,  
-                            },function(Respuesta){},"");
+                                WS:"addMovimiento",
+                                productoId:cajaId,
+                                tipoM:3,
+                                cantidad:cajaCantidad, 
+                                user:1 
+                            },function(Respuesta){
+
+                            	alert(Respuesta.Mensaje);
+
+                            },"");
+
+
                     });
                 });
             });
