@@ -40,6 +40,7 @@
         				<th>Nombre</th>
                         <th>Descripcion</th>
                         <th>CodigoAlterno</th>
+                        <th>Cantidad</th>
                         
         			</tr>	
         		</thead>
@@ -74,6 +75,7 @@
                             data.nombre,
                             data.descripcion,
                             data.codigoAlt,
+                            data.numero
 
 
                             

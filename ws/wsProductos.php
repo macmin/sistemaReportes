@@ -133,14 +133,29 @@ class wsProductos
 
                     if($consulta) {
 
-                    			 
-                                $respuesta = array("Mensaje" => "Producto obtenido",
-                                                    "codMensaje" => 100,
-                                                    "Datos" => $consulta
-                                                    //"Cantidad" =>$cantidad
-                                                    );
+                    			if(count($consulta) > 0 ){
+
+	                                $respuesta = array("Mensaje" => "Producto obtenido",
+	                                                    "codMensaje" => 100,
+	                                                    "Datos" => $consulta
+	                                                    
+	                                                    );
+
+	                                     echo json_encode($respuesta);
+	                               
+                                }else{
+
+                                	 $respuesta = array("Mensaje" => "¡Error!, no existe el producto ",
+                                        "codMensaje" => 200,
+                                        "Datos" => []
+                                        );
 
                                      echo json_encode($respuesta);
+
+                                }
+
+                                
+
                     }else {
 
                             $respuesta = array("Mensaje" => "¡Error!, no existe el producto ",
@@ -182,10 +197,21 @@ class wsProductos
                                 $respuesta = array("Mensaje" => "Entrada de productos correcta",
                                                     "codMensaje" => 100,
                                                     "Datos" => []
-                                                    //"Cantidad" =>$cantidad
+                                                   
                                                     );
 
                                      echo json_encode($respuesta);
+
+                               
+                                	$respuesta = array("Mensaje" => "INCORRECT",
+                                                    "codMensaje" => 200,
+                                                    "Datos" => []
+                                                    
+                                                    );
+
+                                     echo json_encode($respuesta);
+
+                                
                     }else {
 
                             $respuesta = array("Mensaje" => "¡Error!, no se registro la entrada ",

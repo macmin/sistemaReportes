@@ -29,13 +29,13 @@
 
                         <input type="text" class="cajaES alineacionTexto" id="caja" placeholder="EAN" autofocus="autofocus" onkeypress="validar(event)">
 
-                        <input type="radio" name="registro" class="espaciado" onclick="mostrar()">Registro Manual
-                        <input type="radio" name="registro" class="espaciado" onclick="ocultar()">Registro Automatico
+                        
+
                     </div>      
                     <div class="col-xs-6">      
                         Cantidad:
-                        <input type="text" class="cajaES alineacionTexto" id="txtCantidad" placeholder="0">
-                        <button class="botonES" id="registrar">Registrar</button>
+                        <input type="text" class="cajaES alineacionTexto" id="txtCantidad"  placeholder="0" onKeyPress="return soloNumeros(event)">
+                        
                     </div>
                 </div>
         <div>
@@ -59,7 +59,32 @@
         <br>
         <br>
         <script type="text/javascript">
-        	var table;
+        	
+           function soloNumeros(e){
+               var key = window.Event ? e.which : e.keyCode 
+                
+                return ((key >= 48 && key <= 57) || (key==8)) 
+
+      
+            }
+
+
+            $(document).ready(function(){
+
+                $("#txtCantidad").change(function(){
+
+                    
+                    $("#caja").focus();
+
+                });
+
+            });
+
+
+
+
+
+            var table;
         	$(document).ready(function() {
         		table = $("#tblRespuesta").DataTable({
         			paging:false,
@@ -84,34 +109,91 @@
                    tecla = (document.all) ? e.keyCode : e.which;
                    if (tecla==13)
                    {
-                    alert('EAN: '+document.getElementById("caja").value );
+                
+                    
                     var Ean = document.getElementById("caja").value;
+                    
+                    var consulta = $("#tblRespuesta tbody tr");
                     var cajaCantidad = document.getElementById("txtCantidad").value;
-                    $.post('ws/wsProductos.php',{
+                    
+                    if(cajaCantidad == "" ){
+                        cajaCantidad =1;
+                    }else if(cajaCantidad != ""){
+                        cajaCantidad = cajaCantidad;
+                    }
+                    
+                    var c=0;
+                    if(consulta.children().length>1)
+                    {
+                        $.each(consulta,function(index,tr){
+                            console.log(tr);
+                            if(tr.children[1].textContent == Ean){
+                                table.destroy();
+                                tr.children[3].textContent = parseInt(tr.children[3].textContent)+parseInt(cajaCantidad);
+                                c++;
+
+                                table = $("#tblRespuesta").DataTable({
+                                    paging:false,
+                                    dom: 'Bfrtip',
+                                    buttons:[
+                                        {
+                                            extend:"excelHtml5",
+                                            title:"Reporte Excel"
+                                        },
+                                        {
+                                            extend:"pdfHtml5",
+                                            title:"Reporte PDF"
+                                        }
+                                    ]
+                                });
+
+                                return;
+                            }
+
+                        });
+
+                    }
+
+                    if(c==0){
+                            $.post('ws/wsProductos.php',{
                                 WS:"consultaEan",
                                 ean:Ean,
                                 cantidad:cajaCantidad
                                 },function(Respuesta){
 
-	                                    //table.rows().remove().draw();
-	                                        $.each(Respuesta.Datos,function(index,data){
-		                                         table.row.add([
-		                                         	data.productoId,
-		                                            data.ean,
-		                                            data.nombre,
-		                                            data.cantidad
-		                                            
-		                                        ]);
+                                        if(Respuesta.codMensaje==100){
+                                            $.each(Respuesta.Datos,function(index,data){
+                                                 table.row.add([
+                                                    data.productoId,
+                                                    data.ean,
+                                                    data.nombre,
+                                                    data.cantidad
+                                                    
+                                                ]);
 
-	                                        
+                                            
 
-		                                    });
-		                                    table.rows().draw();    
-	                                
+                                            });
+                                            table.rows().draw();    
+                                        }else if(Respuesta.codMensaje ==200){
+                                            
+
+                                            alert(Respuesta.Mensaje);
+
+                                        }
 
                                 },"");
+                        }
+
+
+                    
+
+
+
+                    
 
                         document.getElementById("caja").value="";
+                        document.getElementById("txtCantidad").value="";
                     } 
                 }
                 
