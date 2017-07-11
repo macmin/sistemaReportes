@@ -10,10 +10,11 @@
 	</head>
 	<body>
 		<header>
-			<h1>Opciones para Usuarios</h1>
+			<h1 class="encabezado">Opciones para usuarios</h1>
 		</header>
+		<center>
 			<form class="contenedor">
-				<center>
+				
 					<button class="boton" type="button" onclick="javascript:usuarios();">Adicionar Usuario</button>
 					<br>
 					<br>
@@ -27,7 +28,7 @@
 					<br>
 					<br>
 					<button class="boton" type="button" onclick="javascript:menuadministrador();">Regresar</button>
-				</center>
 			</form>
+		</center>
 	</body>
 </html>

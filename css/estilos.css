@@ -159,13 +159,38 @@ header{
 /*estilos usuarios*/
 
 .selectRol{
-	width: 50%;
-	font-size:20px;
+	width: 70%;
+	font-size:25px;
 	padding: 0 0 0 20px;
 	display: block;
 }
 
+.contenedorUsuario{
+	width: 80%;
+	padding: 30px;
+	border-radius: 0.3em;
+	border: 1px solid #bdbdbd;
+	margin-top: 50px;	
+}
+
+.botonUsuarios{
+	border: 0;
+	background: #006898;
+	color:white;
+	cursor: pointer;
+	border-radius: 0.3em;
+	margin-bottom: 0;
+	width: 50%;
+	font-size: 20px;
+	padding: 10px;
+}
+
+.botonUsuarios:hover{
+	transform: scale(0.95);
+}
+
 /*Modificar Usuario*/
+
 .botonesUsuario{
 	background: linear-gradient(#FFDA63, #FFB940);
 	border: 0;
