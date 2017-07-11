@@ -44,39 +44,30 @@
 		</header>
 
 			<form class="contenedorAdmin">
-				<div class="row around-xs center-xs">
-    				<div class="col-xs-6">
-						<button class="botonMenu" type="button" onclick="javascript:productos();">Productos</button>
-					</div>
-					<div class="col-xs-6 center-xs">
-						<button class="botonMenu" type="button" onclick="javascript:reportes();">Reportes</button>
-					</div>
+			<center>
+				<button class="botonMenu" type="button" onclick="javascript:productos();">Productos</button>
+				<br>
+				<br>
+				<br>
+				<button class="botonMenu" type="button" onclick="javascript:reportes();">Reportes</button>
+				<br>
+				<br>
+				<br>
+				<button class="botonMenu" type="button" onclick="javascript:opcionesusuarios();">Usuario</button>
+				</div>
 				</div>
 				<br>
 				<br>
 				<br>
-				<div class="row around-xs center-xs">
-    				<div class="col-xs-6">
-						<button class="botonMenu" type="button" onclick="javascript:configuracion();">Configuracion</button>
-					</div>
-					<div class="col-xs-6 center-xs">
-						<button class="botonMenu" type="button" onclick="javascript:opcionesusuarios();">Usuario</button>
-					</div>
-				</div>
-				<br>
-				<br>
-				<br>
-				<div class="row center-xs">
-    				<div class="col-xs-6">
-							<button class="botonMenu" type="button" onclick="javascript:registrar();">Registrar Productos</button>
-					</div>
-				</div>
+			</center>
+
 			</form>
+
 	</body>
 
 
-
-<?php
+<
+<?php 
 	}else{
    		echo "no hay session";
 	}

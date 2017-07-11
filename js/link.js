@@ -50,6 +50,10 @@ function addproductos(){
 				window.location="addProductos.php";
 			}
 
-function addMovimientos(){
-				window.location="movimientos.php";
+function addEntrada(){
+				window.location="entradas.php";
+			}
+
+function addSalida(){
+				window.location="salidas.php";
 			}
