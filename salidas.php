@@ -1,3 +1,12 @@
+<?php
+
+    session_start();
+    
+    if( isset( $_SESSION['name'] ) and isset( $_SESSION['userId'] ) ) {
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -19,6 +28,7 @@
         <script src="js/link.js"></script>
 	</head>
 	 <body>
+     <input type="text" id="hidden" value="<?php echo  $_SESSION['userId']?>">
         <header>
                 <h1>Salidas</h1>
         </header>
@@ -46,8 +56,8 @@
         		<thead>
         			<tr>
         				<th>Id</th>
+                        <th>Ean</th>
         				<th>Nombre</th>
-        				<th>Ean</th>
                         <th>Cantidad</th>
         			</tr>	
         		</thead>
@@ -171,6 +181,7 @@
                 $("#botonGuardar").click(function(){
 
                     var consulta = $("#tblRespuesta tbody tr");
+                    var idUser = $("hiddenId").value;
 
                     $.each(consulta,function(index,tr){ 
                     	
@@ -186,7 +197,7 @@
                                 productoId:cajaId,
                                 tipoM:4,
                                 cantidad:cajaCantidad, 
-                                user:1 
+                                user:idUser 
                             },function(Respuesta){
                                 alert(Respuesta.Mensaje);
                             },"");
@@ -202,7 +213,7 @@
 
         <div class="row around-xs center-xs">
             <div class="col-xs-6">
-                <button class="botonReporte" type="button" onclick="javascript:menuadministrador();">Regresar</button>
+                <button class="botonReporte" type="button" onclick="javascript:productos();">Regresar</button>
             </div>
             <div class="col-xs-6">
                 <button class="botonReporte" type="button" id="botonGuardar" >Guardar</button>
@@ -210,7 +221,13 @@
         </div>    
 
 
+<?php
+    }else{
+        echo "no hay sesion";
+    }
 
+
+?>
        
 				
     </body>

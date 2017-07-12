@@ -1,3 +1,8 @@
+<?php
+ 	session_start();
+
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,8 +11,25 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
 		<link rel="stylesheet" href="css/estilos.css">
 		<link rel="stylesheet" href="css/flexboxgrid.min.css">
+		
+		<script type="text/javascript" src="js/alert.js"></script>
 	</head>
 	<body>
+
+		<?php
+			if(isset($_SESSION['no_session'] ) ){
+
+	 			?>
+	 			<script>
+	 				alertMensaje();
+	 			</script>
+	 			<?php
+	 			unset($_SESSION['no_session']);
+	            session_unset();
+
+				session_destroy();  
+ 			}
+		?>
 		<header>
 			<h1 class="encabezado">Sistema de Inventario</h1>
 		</header>
@@ -26,9 +48,10 @@
 					<input type="text" class="cajaTexto" id="usuario" placeholder="&#128272; usuario" required name="usuario">
 					<h4 class="texto">Introduce tu contraseña</h4>
 					<input  type="password" class="cajaTexto" required id="clave" placeholder=" &#128272; contraseña" name="password">
-					<input type="submit" class="boton" value="Ingresar">
+					<input type="submit" class="boton" value="Ingresar" >
 				</form>
 			</div>
 		</div>
+
 	</body>
 </html>

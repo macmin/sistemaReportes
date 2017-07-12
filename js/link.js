@@ -61,3 +61,4 @@ function addSalida(){
 function cargarArchivo(){
 				window.location="cargarArchivo.php";
 			}
+

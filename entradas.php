@@ -1,3 +1,12 @@
+<?php
+
+    session_start();
+    
+    if( isset( $_SESSION['name'] ) and isset( $_SESSION['userId'] ) ) {
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -19,6 +28,7 @@
         <script src="js/link.js"></script>
 	</head>
 	 <body>
+        <input type="hidden" id="hiddenId" value="<?php echo  $_SESSION['userId']?>">
         <header>
                 <h1>Entradas</h1>
         </header>
@@ -47,8 +57,8 @@
         		<thead>
         			<tr>
         				<th>Id</th>
+                        <th>Ean</th>
         				<th>Nombre</th>
-        				<th>Ean</th>
                         <th>Cantidad</th>
         			</tr>	
         		</thead>
@@ -110,83 +120,84 @@
                    if (tecla==13)
                    {
                 
-                    
-                    var Ean = document.getElementById("caja").value;
-                    
-                    var consulta = $("#tblRespuesta tbody tr");
-                    var cajaCantidad = document.getElementById("txtCantidad").value;
-                    
-                    if(cajaCantidad == "" ){
-                        cajaCantidad =1;
-                    }else if(cajaCantidad != ""){
-                        cajaCantidad = cajaCantidad;
-                    }
-                    
-                    var c=0;
-                    if(consulta.children().length>1)
-                    {
-                        $.each(consulta,function(index,tr){
-                            console.log(tr);
-                            if(tr.children[1].textContent == Ean){
-                                table.destroy();
-                                tr.children[3].textContent = parseInt(tr.children[3].textContent)+parseInt(cajaCantidad);
-                                c++;
+                        
+                        var Ean = document.getElementById("caja").value;
+                        
+                        var consulta = $("#tblRespuesta tbody tr");
+                        var cajaCantidad = document.getElementById("txtCantidad").value;
+                        
+                        if(cajaCantidad == "" ){
+                            cajaCantidad =1;
+                        }else if(cajaCantidad != ""){
+                            cajaCantidad = cajaCantidad;
+                        }
+                        
+                        var c=0;
+                        if(consulta.children().length>1)
+                        {
+                            $.each(consulta,function(index,tr){
+                                console.log(tr);
+                                if(tr.children[1].textContent == Ean){
+                                    table.destroy();
+                                    tr.children[3].textContent = parseInt(tr.children[3].textContent)+parseInt(cajaCantidad);
+                                    c++;
 
-                                table = $("#tblRespuesta").DataTable({
-                                    paging:false,
-                                    dom: 'Bfrtip',
-                                    buttons:[
-                                        {
-                                            extend:"excelHtml5",
-                                            title:"Reporte Excel"
-                                        },
-                                        {
-                                            extend:"pdfHtml5",
-                                            title:"Reporte PDF"
-                                        }
-                                    ]
-                                });
+                                    table = $("#tblRespuesta").DataTable({
+                                        paging:false,
+                                        dom: 'Bfrtip',
+                                        buttons:[
+                                            {
+                                                extend:"excelHtml5",
+                                                title:"Reporte Excel"
+                                            },
+                                            {
+                                                extend:"pdfHtml5",
+                                                title:"Reporte PDF"
+                                            }
+                                        ]
+                                    });
 
-                                return;
-                            }
+                                    return;
+                                }
 
-                        });
+                            });
 
-                    }
-
-                    if(c==0){
-                            $.post('ws/wsProductos.php',{
-                                WS:"consultaEan",
-                                ean:Ean,
-                                cantidad:cajaCantidad
-                                },function(Respuesta){
-
-                                        if(Respuesta.codMensaje==100){
-                                            $.each(Respuesta.Datos,function(index,data){
-                                                 table.row.add([
-                                                    data.productoId,
-                                                    data.ean,
-                                                    data.nombre,
-                                                    data.cantidad
-                                                    
-                                                ]);
-
-                                            
-
-                                            });
-                                            table.rows().draw();    
-                                        }else if(Respuesta.codMensaje ==200){
-                                            
-
-                                            alert(Respuesta.Mensaje);
-
-                                        }
-
-                                },"");
                         }
 
+                        if(c==0){
+                                $.post('ws/wsProductos.php',{
+                                    WS:"consultaEan",
+                                    ean:Ean,
+                                    cantidad:cajaCantidad
+                                    },function(Respuesta){
 
-                    
+                                            if(Respuesta.codMensaje==100){
+
+                                                $.each(Respuesta.Datos,function(index,data){
+                                                     table.row.add([
+                                                        data.productoId,
+                                                        data.ean,
+                                                        data.nombre,
+                                                        data.cantidad
+                                                        
+                                                    ]);
+
+                                                
+
+                                                });
+                                                table.rows().draw();    
+                                            }else if(Respuesta.codMensaje ==200){
+                                                
+
+                                                alert(Respuesta.Mensaje);
+
+                                            }
+
+                                    },"");
+                            }
+
+
+                        
 
 
 
@@ -195,6 +206,7 @@
                         document.getElementById("caja").value="";
                         document.getElementById("txtCantidad").value="";
                     } 
+               
                 }
                 
 
@@ -202,6 +214,7 @@
                 $("#botonGuardar").click(function(){
 
                     var consulta = $("#tblRespuesta tbody tr");
+                    var idUser = $("hiddenId").value;
 
                     $.each(consulta,function(index,tr){ 
                     	
@@ -217,10 +230,10 @@
                                 productoId:cajaId,
                                 tipoM:3,
                                 cantidad:cajaCantidad, 
-                                user:1 
+                                user:idUser 
                             },function(Respuesta){
 
-                            	alert(Respuesta.Mensaje);
+                            	 alert(Respuesta.Mensaje);
 
                             },"");
 
@@ -235,7 +248,7 @@
 
         <div class="row around-xs center-xs">
             <div class="col-xs-6">
-                <button class="botonReporte" type="button" onclick="javascript:menuadministrador();">Regresar</button>
+                <button class="botonReporte" type="button" onclick="javascript:productos();">Regresar</button>
             </div>
             <div class="col-xs-6">
                 <button class="botonReporte" type="button" id="botonGuardar" >Guardar</button>
@@ -243,7 +256,12 @@
         </div>    
 
 
+<?php
+    }else{
+        echo "No hay sesion";
+    }
 
+?>
        
 				
     </body>

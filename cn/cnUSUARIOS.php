@@ -13,9 +13,9 @@ class USUARIOS extends Connection
 	public function consultaLogin($username, $pass)
 	{
         $con = sha1($pass);
-		$this -> setQuery("select nombre,userId  from users where username='$username' and password='$con'");
+		$this -> setQuery("select nombre,userId,rolId,statusId  from users where username='$username' and password='$con'");
 		$this -> Ejecutar();
-
+        $resultados=[];
 		while($row = $this-> getResult() -> fetch_array() )
          
             $resultados[] = $row;

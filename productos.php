@@ -1,10 +1,10 @@
-<!--<?php
-/*
+<?php
+
     session_start();
     
     if( isset( $_SESSION['name'] ) and isset( $_SESSION['userId'] ) ) {
-*/
-?>-->
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -98,7 +98,7 @@
 
                             
                         ]);
-                    });
+                    },"json");
                     table.rows().draw();
                     
                 });
@@ -115,13 +115,13 @@
                 </center>
 
     </body>
-<!--
+
 <?php
-/* 
+ 
     }else{
         echo "no hay sesion";
     }
-*/
+
 ?> 
--->
+
 </html> 

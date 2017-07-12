@@ -2,16 +2,36 @@
 
 include_once("../cn/cnPRODUCTOS.php");
 
-
+    set_time_limit(0);
 class wsProductos
 {
 	protected $producto;
     protected $WS;
 
+    public function numero($value)
+    {
+    	try{
+    		return intval($value) > -1 ? true : false;
+    	}catch(Exception $e){  return false; }
+    }
+
+    function convertir($array0,$padre){
+	    $res="";
+	    foreach ($array0 as $key0 => $array) {
+	    	$res .= "<$padre>";
+		    foreach ($array as $key => $value) {
+		    		$res .= "<$key>$value</$key>";
+
+		    }
+	    	$res .= "</$padre>";
+	    }
+	    return $res;
+	}
+
     public function __construct()
     { 
         
-        header('Content-Type: application/json');
+       header('Content-Type: application/json');
         $this-> producto = new PRODUCTOS();
         $this-> WS = $this -> getPOST("WS");
 
@@ -86,32 +106,11 @@ class wsProductos
             case 'getProductos':
 
                 $consulta = $this -> producto -> getProductosT();
-
-                $respuesta=[];
-
-                if($consulta) {
-
-                            $respuesta = array("Mensaje" => "Productos obtenidos",
-                                                "codMensaje" => 100,
-                                                "Datos" => $consulta
-                                                );
-
-                                 echo json_encode($respuesta);
-                        
-
-                }else {
-
-                        $respuesta = array("Mensaje" => "¡Error!, no hay productos ",
-                                    "codMensaje" => 200,
-                                    "Datos" => []
-                                    );
-
-                                 echo json_encode($respuesta);
-
-
-                }
-
-                
+				 $respuesta = array("Mensaje" => "Error",
+				                                    "codMensaje" => 100,
+				                                    "Datos" => $consulta
+				                                    );
+				                        echo json_encode($respuesta);
                 break;
 
             case 'consultaEan':
@@ -194,25 +193,17 @@ class wsProductos
                 if($movimiento) {
 
                     			 
-                                $respuesta = array("Mensaje" => "Entrada de productos correcta",
+                                $respuesta = array("Mensaje" => "Movimiento de productos correcto ",
                                                     "codMensaje" => 100,
                                                     "Datos" => []
-                                                   
-                                                    );
+                                                   );
 
                                      echo json_encode($respuesta);
 
                                
-                                	$respuesta = array("Mensaje" => "INCORRECT",
-                                                    "codMensaje" => 200,
-                                                    "Datos" => []
-                                                    
-                                                    );
-
-                                     echo json_encode($respuesta);
-
+                                	
                                 
-                    }else {
+                }else {
 
                             $respuesta = array("Mensaje" => "¡Error!, no se registro la entrada ",
                                         "codMensaje" => 200,

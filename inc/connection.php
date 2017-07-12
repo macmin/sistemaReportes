@@ -63,8 +63,8 @@
             	$this -> setMensaje("Movimiento Exitoso");
             	$this -> setIsCorrect(true);
             	$this -> setResult(
-            		$this-> getConnection() -> query ( $this -> getQuery(),MYSQLI_USE_RESULT)
-            			);
+            						$this-> getConnection() -> query ( $this -> getQuery(),MYSQLI_USE_RESULT)
+            						);
 
 
             }catch(Exception $error){
