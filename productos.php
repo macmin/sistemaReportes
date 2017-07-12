@@ -14,6 +14,7 @@
     	<link rel="stylesheet" type="text/css" href="css/jquery.datatables.css" />
     	<link rel="stylesheet" type="text/css" href="css/buttons.datatables.css" />
         <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
     	<script type="text/javascript" src="DataTable/jquery.datatables.js"></script>
     	<script type="text/javascript" src="DataTable/dataTables.buttons.js"></script>
     	<script type="text/javascript" src="DataTable/buttons.flash.js"></script>
@@ -27,7 +28,17 @@
 	</head>
 	 <body>
         <header>
+        <div class="row around-xs center-xs">
+            <div class="col-xs-4">
+            <i class="fa fa-home fa-3x boton-home" aria-hidden="true"  onclick="window.location='menuAdministrador.php'";></i>
+            </div>
+             <div class="col-xs-4">
                 <h1 class="encabezado">Productos</h1>
+            </div>
+            <div class="col-xs-4">
+                
+            </div>
+        </div>   
         </header>
         <br>
         <br>
