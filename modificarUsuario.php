@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    
+    if( isset( $_SESSION['name'] ) and isset( $_SESSION['userId'] ) ) {
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -92,6 +98,10 @@
         <center>
             <button class="botonRegresar" type="button" onclick="javascript:opcionesusuarios();">Regresar</button>
         </center>
-
+    <?php
+        }else{
+            echo "No hay sesion";
+        }
+    ?>
     </body>
 </html> 

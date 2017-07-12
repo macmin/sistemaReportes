@@ -1,3 +1,9 @@
+<?php
+	session_start();
+    
+    if( isset( $_SESSION['name'] ) and isset( $_SESSION['userId'] ) ) {
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -105,7 +111,11 @@
 										});
 			</script>
 
-
+ 	<?php
+ 		}else{
+ 			echo "no hay sesion";
+ 		}
+ 	?>
 
 	</body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 
 include_once("../inc/connection.php");
-
+    set_time_limit(0);
 class PRODUCTOS extends Connection
 {
 
@@ -14,32 +14,23 @@ class PRODUCTOS extends Connection
 	{
 		
 
-		$this-> setQuery("insert into productos(nombre,descripcion,ean,codigoAlt,userInsert) values ('$nombre','$desc','$ean','$codAlt',$userId)");
+		$this-> setQuery("insert into productos(nombre,descripcion,ean,codigoAlt,userInsert,numero) values ('$nombre','$desc','$ean','$codAlt',$userId,0)");
 		$this-> Ejecutar();
 
-		/*$this ->setQuery("select MAX(productoId) as prodId from productos ");
-		$this ->Ejecutar();
-
-		while($row = $this -> getResult() -> fetch_array() )
-			$res = $row['prodId'];
-		
-
-		$this -> setQuery("insert into movimientos(productoId,tipoMovimiento,cantidad,userInsert) values ($res,1,1,$userId)");
-		$this -> Ejecutar();
-
-        */
+	
 		return $this -> getIsCorrect();
 	}
 
 	public function getProductosT()
 	{
-
-		$this -> setQuery("select p.nombre, p.descripcion,p.ean,p.codigoAlt,p.numero from productos p");
+ 		$this->setQuery("SET NAMES 'utf8'");
+        $this -> Ejecutar();
+		$this -> setQuery("select nombre,ean,descripcion,codigoAlt,numero from productos");
 		$this -> Ejecutar();
 		$resultados=[];
 		while($row = $this-> getResult() -> fetch_array() )
-         
             $resultados[] = $row;
+
 
         return $resultados; 
     }

@@ -31,23 +31,34 @@ class wsUsuarios
 
                     $consulta = $this -> usuario -> consultaLogin($username, $pass);
 
-                    $respuesta=[];
+                
 
                     
 
                     if($consulta){
                                 
                                 session_start();
-                                $_SESSION["name"] = $consulta[0][0];
-                                $_SESSION["userId"] = $consulta[0][1];
-                                header("location:../menuAdministrador.php");
-                                
-                               //var_dump($consulta);
+
+                                if( ($_SESSION["rolId"] = $consulta[0][2] ) == 1 and ($_SESSION["statusId"] = $consulta[0][3] ) ==1 ){
+                                    $_SESSION["name"] = $consulta[0][0];
+                                    $_SESSION["userId"] = $consulta[0][1];
+
+                                        header("location:../menuAdministrador.php");
+                                }else if( $_SESSION["statusId"] = $consulta[0][3] == 0){
+                                    #el usuario esta dado de baja
+                                }else if(count($consulta) <0 ){
+                                       
+                                      $_SESSION['no_session'] = "Usuario invalido"; 
+                                      //header("location:../login.php");
+                                }        
+                                      
 
 
 
                     }else{
-                            session_destroy();
+                            session_start();
+                            $_SESSION['no_session'] = "Usuario invalido";
+                            json_encode($_SESSION['no_session']); 
                             header("location:../login.php");
                         }   
 

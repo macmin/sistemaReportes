@@ -1,3 +1,11 @@
+<?php
+session_start();
+    
+    if( isset( $_SESSION['name'] ) and isset( $_SESSION['userId'] ) ) {
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -29,5 +37,13 @@
 					<button class="boton" type="button" onclick="javascript:menuadministrador();">Regresar</button>
 				</center>
 			</form>
+
+
+	<?php
+		}else{
+			echo "No hay sesion";
+		}
+
+	?>
 	</body>
 </html>
