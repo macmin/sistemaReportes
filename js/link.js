@@ -57,3 +57,7 @@ function addEntrada(){
 function addSalida(){
 				window.location="salidas.php";
 			}
+
+function cargarArchivo(){
+				window.location="cargarArchivo.php";
+			}
