@@ -395,6 +395,9 @@ header{
 	transform: scale(0.95);
 }
 
+.boton-home{
+	cursor: pointer;
+}
 /*estilos opcionUsuario.php*/
 
 .tablaUsuarios{
