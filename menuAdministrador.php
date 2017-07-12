@@ -1,5 +1,5 @@
 <?php
-
+	
 	session_start();
     
     if( isset( $_SESSION['name'] ) and isset( $_SESSION['userId'] ) ) {
@@ -41,17 +41,24 @@
 		</header>
 
 			<form class="contenedorAdmin">
-			<center>
-				<button class="botonMenu" type="button" onclick="javascript:productos();">Productos</button>
-				<br>
-				<br>
-				<br>
-				<button class="botonMenu" type="button" onclick="javascript:reportes();">Reportes</button>
-				<br>
-				<br>
-				<br>
-				<button class="botonMenu" type="button" onclick="javascript:opcionesusuarios();">Usuario</button>
+				<div class="row around-xs center-xs">
+    				<div class="col-xs-6">
+						<button class="botonMenu" type="button" onclick="javascript:productos();">Productos</button>
+					</div>
+					<div class="col-xs-6">
+						<button class="botonMenu" type="button" onclick="javascript:reportes();">Reportes</button>
+					</div>
 				</div>
+				<br>
+				<br>
+				<br>
+				<div class="row around-xs center-xs">
+    				<div class="col-xs-6">
+						<button class="botonMenu" type="button" onclick="javascript:opcionesusuarios();">Usuario</button>
+					</div>
+					<div class="col-xs-6">
+					<button class="botonMenu" type="button" onclick="javascript:cargarArchivo();">Cargar Archivo</button>
+					</div>
 				</div>
 				<br>
 				<br>

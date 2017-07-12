@@ -13,36 +13,54 @@
 		<link rel="stylesheet" href="css/estilos.css">
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<script src="js/link.js"></script>
-		
 		<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
-
+		<link rel="stylesheet" href="css/flexboxgrid.min.css">
 	</head>
 	<body>
 		<header>
-			<h1>Usuarios</h1>
+			<h1 class="encabezado">Usuarios</h1>
 		</header>
-			<div class="contenedor">
-				<center>
-					<i class="fa fa-user-circle fa-5x centrar" aria-hidden="true"></i>
-					<input type="text" class="cajaTexto" placeholder="Nombre" id="txtNombre">
-					<input type="text" class="cajaTexto" placeholder="Apellido Paterno" id="txtApp">
-					<input type="text" class="cajaTexto" placeholder="Apellido Materno" id="txtApm">
-					<input type="text" class="cajaTexto" placeholder="Usuario" id="txtUsuario">
-					<input type="password" class="cajaTexto" placeholder="Contraseña" id="txtPassword">
-					<br>
-					<select class="selectRol" id="selectRoles">
-						<option disabled selected>Rol del Usuario</option>
-						
-					</select>
-					<br>
-					<br>
-					<button class="boton" id="btnRegistrar">Registrar</button>
-					<br>
-					<br>
-					<br>
-					<button class="boton" type="button" onclick="javascript:opcionesusuarios();">Inicio</button>
-				</center>
+		<center>
+			<div class="contenedorUsuario">
+				<i class="fa fa-user-circle fa-5x centrar" aria-hidden="true"></i>
+				<div class="row around-xs center-xs">
+            		<div class="col-xs-3">
+						<input type="text" class="cajaTexto" placeholder="Nombre" id="txtNombre">
+					</div>
+					<div class="col-xs-3">
+						<input type="text" class="cajaTexto" placeholder="Apellido Paterno" id="txtApp">
+					</div>
+					<div class="col-xs-3">
+						<input type="text" class="cajaTexto" placeholder="Apellido Materno" id="txtApm">
+					</div>
+				</div>
+				<div class="row around-xs middle-xs">		
+					<div class="col-xs-4">
+						<input type="text" class="cajaTexto" placeholder="Usuario" id="txtUsuario">
+					</div>
+					<div class="col-xs-4">
+						<input type="password" class="cajaTexto" placeholder="Contraseña" id="txtPassword">
+					</div>
+					<div class="col-xs-4">
+						<select class="selectRol">					
+							<option disabled selected>Rol del Usuario</option>
+							<option>Administrador</option>
+							<option>Usuario</option>
+						</select>
+					</div>
+				</div>
+				<br>
+				<br>
+				<div class="row around-xs middle-xs">		
+					<div class="col-xs-6">
+						<button class="botonUsuarios" id="btnRegistrar">Registrar</button>
+					</div>
+					<div class="col-xs-6">
+						<button class="botonUsuarios" type="button" onclick="javascript:opcionesusuarios();">Inicio</button>
+					</div>
+				</div>
 			</div>
+		</center>
 
 
 			<script type="text/javascript">

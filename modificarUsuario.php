@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    	<title>.:: Prueba DataTable ::.</title>
+    	<title>.:: Modificar ::.</title>
     	<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
     	<link rel="stylesheet" type="text/css" href="css/jquery.datatables.css" />
     	<link rel="stylesheet" type="text/css" href="css/buttons.datatables.css" />
@@ -24,14 +24,14 @@
     </head>
     <body>
         <header>
-                <h1>Usuarios</h1>
+                <h1 class="encabezado">Usuarios</h1>
         </header>
         <br>
         <br>
         <div>
         	<table id='tblRespuesta'>
         		<thead>
-        			<tr>
+        			<tr class="colortitulo">
         				<th>Usuario</th>
         				<th>Nombre</th>
                         <th>Apellido Paterno</th>
