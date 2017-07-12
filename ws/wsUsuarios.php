@@ -14,7 +14,7 @@ class wsUsuarios
 		$this-> usuario = new USUARIOS();
         $this-> WS = $this->getPOST("WS");
         
-        switch ($this-> WS) {
+        switch($this-> WS) {
 
            case 'sigIn':
                 $errors = array();
@@ -106,6 +106,7 @@ class wsUsuarios
                 $usuario = $this -> getPOST('usuario');
                 $password = $this -> getPOST('password');
                 $rol = $this -> getPOST('rol');
+
                 $errors = array();
 
                 if(empty ($nombre) )
@@ -114,9 +115,9 @@ class wsUsuarios
                     $errors[] = "Falta ingresar los apellidos";
                 if(empty($usuario) || empty($password) ) 
                     $errors[] = "Usuario y password son requeridos";
-                if(! filter_var($email_a, FILTER_VALIDATE_EMAIL))
-                    $errors[] = "usuario tiene formato de correo";
-                if(empty($rol) )
+                if(! filter_var($usuario, FILTER_VALIDATE_EMAIL))
+                    $errors[] = "usuario no tiene formato de correo";
+                if(empty($rol))
                     $errors[] = "Rol no seleccionado";
 
                 if(count($errors) == 0 ){
@@ -151,7 +152,7 @@ class wsUsuarios
                     
                     $respuesta = array("Mensaje" => "Error",
                                     "codMensaje" => 200,
-                                    "Datos" => $errors
+                                    "Datos" => $errors[0]
                                     );
                         echo json_encode($respuesta);
                 }  

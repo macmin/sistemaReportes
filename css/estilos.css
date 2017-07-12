@@ -40,6 +40,7 @@ header{
 #tblRespuesta{
 	 width: 96%;
 	 text-align: center;
+	 position: relative;
 	}
 
 #tblFechas{
@@ -229,30 +230,60 @@ header{
 
 /*-----estilos ventana con datos-----*/
 
-    .cerrar{
-        float:right;
-        margin: 5px;
-        height:22px;
-        width:22px;
-        color:#ffffff;
-        background-color: #ff0000;
-        text-align:center;
-        cursor:pointer;
-    }
-    .ventana{
-        border: 2px solid #666666;
-        position: absolute;
-        width: 10%;
-        visibility: hidden;
-        border-radius: 5px;
-        padding: 10px;
-    }
-    #ventana1{
-        z-index: 10;
-        right: 0%;
-        top: 7.5%;
-        background-color: rgba(256,256,256,0.98);
-    }
+   .cerrar{
+       float:right;
+       margin: 5px;
+       height:22px;
+       width:22px;
+       color:#ffffff;
+       background-color: #ff0000;
+       text-align:center;
+       cursor:pointer;
+   }
+   .ventana{
+       border: 2px solid #666666;
+       position: absolute;
+       width: 10%;
+       visibility: hidden;
+       border-radius: 5px;
+       padding: 10px;
+   }
+   #ventana1{
+       z-index: 10;
+       right: 1%;
+       top: 5.5%;
+       background-color: rgba(256,256,256,0.98);
+   }
+    /*fin de estilos de ventana*/
+
+    /*Estilo de ventana modal para ingresar nuevo producto en entradas */
+   .cerrarModal{
+       float:right;
+       margin: 2px;
+       height:22px;
+       width:22px;
+       color:#ffffff;
+       background-color: #ff0000;
+       text-align:center;
+       cursor:pointer;
+   }
+   .ventanaModal{
+       border: 2px solid #666666;
+       position: absolute;
+       width: 45%;
+       height: 50%;
+       visibility: hidden;
+       border-radius: 5px;
+       padding: 10px;
+   }
+   #ventana1Modal{
+   	   position: absolute;
+       z-index: 10;
+       right: 30%;
+       top: 15%;
+       background-color: rgba(256,256,256,0.98);
+   }
+
 
 /*fin de estilos de ventana*/
     
@@ -476,4 +507,13 @@ header{
 	padding: 30px;
 	border: 1px solid rgba(0,0,0,0.9);
 	margin-top: 50px;
+}
+
+.contenedorProductosES{
+	width: 800px;
+	margin: auto;
+	background-color: #3D8C99;
+	padding: 30px;
+	border: 1px solid rgba(0,0,0,0.9);
+	margin-top: 20px;
 }

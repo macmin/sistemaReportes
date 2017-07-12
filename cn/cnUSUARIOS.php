@@ -39,10 +39,10 @@ class USUARIOS extends Connection
     public function insertUsuario($usuario,$password,$nombre,$app,$apm,$rol)
     {
     	$pass = sha1($password);
-    	$this -> setQuery("insert into users(username,password,nombre,app,apm,rolId) values('$usuario','$pass','$nombre','$app','$apm',$rol) ");
+        $this -> setQuery("insert into users(username,password,nombre,app,apm,dateInsert,rolId,statusId) values('$usuario','$pass','$nombre','$app','$apm',NOW(),$rol,1) ");
     	$this ->Ejecutar();
 
-    	return $this -> getIsCorrect();
+    	return $this ->getIsCorrect();
 
     }
 
