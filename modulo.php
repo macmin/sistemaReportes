@@ -33,8 +33,10 @@ foreach ($lineas as $linea_num => $linea)
        $nombre = trim($datos[2]);
         
        //guardamos en base de datos la línea leida
-      $prueba= $conexion->query("INSERT INTO productos(nombre,descripcion,ean,codigoAlt,userInsert,cantidad) VALUES('$nombre','$nombre','$codigo','$codAlterno',1,0)");
- 
+    $prueba = $conexion -> query("SELECT ean FROM productos where ean='$codigo'");
+    if( $prueba->num_rows == 0 ){  
+        $prueba= $conexion->query("INSERT INTO productos(nombre,descripcion,ean,codigoAlt,userInsert,numero) VALUES('$nombre','$nombre','$codigo','$codAlterno',1,0)");
+    } 
        //cerramos condición
    }
  

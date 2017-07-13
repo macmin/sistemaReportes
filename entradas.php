@@ -275,7 +275,7 @@
                 $("#botonGuardar").click(function(){
 
                     var consulta = $("#tblRespuesta tbody tr");
-                    var idUser = $("hiddenId").value;
+                    var idUser = $("#hiddenId").val();
 
                     $.each(consulta,function(index,tr){ 
                     	
