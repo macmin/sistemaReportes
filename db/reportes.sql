@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.1.21-MariaDB, for Win32 (AMD64)
+-- MySQL dump 10.16  Distrib 10.1.24-MariaDB, for Win32 (AMD64)
 --
--- Host: localhost    Database: localhost
+-- Host: localhost    Database: reportes
 -- ------------------------------------------------------
--- Server version	10.1.21-MariaDB
+-- Server version	10.1.24-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -36,7 +36,7 @@ CREATE TABLE `movimientos` (
   CONSTRAINT `movimientos_ibfk_1` FOREIGN KEY (`productoId`) REFERENCES `productos` (`productoId`),
   CONSTRAINT `movimientos_ibfk_2` FOREIGN KEY (`tipoMovimiento`) REFERENCES `tipomovimiento` (`tipoId`),
   CONSTRAINT `movimientos_ibfk_3` FOREIGN KEY (`userInsert`) REFERENCES `users` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -80,18 +80,19 @@ DROP TABLE IF EXISTS `productos`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `productos` (
   `productoId` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) DEFAULT NULL,
-  `descripcion` varchar(100) DEFAULT NULL,
-  `ean` varchar(100) DEFAULT NULL,
-  `codigoAlt` varchar(100) DEFAULT NULL,
+  `nombre` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `descripcion` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `ean` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `codigoAlt` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `dateInsert` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `userInsert` int(11) DEFAULT NULL,
+  `numero` int(11) DEFAULT NULL,
   PRIMARY KEY (`productoId`),
   KEY `userInsert` (`userInsert`),
   KEY `nombre` (`nombre`),
   KEY `ean` (`ean`),
   CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`userInsert`) REFERENCES `users` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +101,7 @@ CREATE TABLE `productos` (
 
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` VALUES (8,'COLCHON COMPLETO','VINILIZADO 190 X 90 X 11','01031503950','COLC-190','2017-07-10 14:56:54',1),(9,'COLCHON COMPLETO','VINILIZADO 200 X 90 X 11','01031503960','COLC-200','2017-07-10 14:57:28',1),(10,'COLCHON SECCIONADO','VINILIZADO 190 X 90 X 11','01031504080','COLS-190','2017-07-10 14:58:07',1),(11,'COLCHON SECCIONADO','VINILIZADO 200 X 90 X 11','01031504090','COLS-200','2017-07-10 14:58:43',1),(12,'COLCHON ESPECIAL','-','01031515780','COL-ESP','2017-07-10 14:59:13',1),(13,'ALMOHADA CERVICAL','-','02030200220','ABM-ALCERV','2017-07-10 17:46:39',1),(14,'ALMOHADA ESTANDAR','-','02030200300','ABM-ALEST','2017-07-10 18:03:15',1);
+INSERT INTO `productos` VALUES (1,'agua','aguaD','758104100422','wesdasd','2017-07-13 20:24:16',1,0);
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -250,14 +251,14 @@ CREATE TABLE `users` (
   `nombre` varchar(100) DEFAULT NULL,
   `app` varchar(100) DEFAULT NULL,
   `apm` varchar(100) DEFAULT NULL,
-  `dateInsert` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `dateInsert` date DEFAULT NULL,
   `rolId` int(11) DEFAULT NULL,
   `statusId` int(11) DEFAULT NULL,
   PRIMARY KEY (`userId`),
   KEY `rolId` (`rolId`),
   KEY `username` (`username`),
   CONSTRAINT `users_ibfk_1` FOREIGN KEY (`rolId`) REFERENCES `roles` (`rolId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -266,7 +267,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'mac@gmail.com','7110eda4d09e062aa5e4a390b0a572ac0d2c0220','Macario','Minor','Arenas','2017-07-07 18:15:55',1,1),(2,'l@gmail.com','111','Manuel','Lara','Juarez','2017-07-07 18:16:14',2,1),(3,'j@gmail.com','2222','Juan','Perez','Hernandez','2017-07-07 18:16:18',2,1),(4,'luis@gmail.com','75d4c9b02467d96bc2ea6d655eb983d5a7a97a9b','Luis','Campos','Ramirez','2017-07-07 18:16:23',2,1);
+INSERT INTO `users` VALUES (1,'mac@gmail.com','7110eda4d09e062aa5e4a390b0a572ac0d2c0220','Macario','Minor','Arenas','2017-07-12',1,1),(2,'c@gmail.com','6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2','asd','asd','asd','2017-07-12',2,0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -279,4 +280,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-10 13:40:52
+-- Dump completed on 2017-07-13 15:25:14
