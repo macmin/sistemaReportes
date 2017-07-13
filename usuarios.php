@@ -28,27 +28,26 @@
 				<i class="fa fa-user-circle fa-5x centrar" aria-hidden="true"></i>
 				<div class="row around-xs center-xs">
             		<div class="col-xs-3">
-						<input type="text" class="cajaTexto" placeholder="Nombre" id="txtNombre">
+						<input type="text" class="cajaTexto" placeholder="Nombre" required id="txtNombre" >
 					</div>
 					<div class="col-xs-3">
-						<input type="text" class="cajaTexto" placeholder="Apellido Paterno" id="txtApp">
+						<input type="text" class="cajaTexto" placeholder="Apellido Paterno" required id="txtApp" >
 					</div>
 					<div class="col-xs-3">
-						<input type="text" class="cajaTexto" placeholder="Apellido Materno" id="txtApm">
+						<input type="text" class="cajaTexto" placeholder="Apellido Materno" required id="txtApm" >
 					</div>
 				</div>
 				<div class="row around-xs middle-xs">		
 					<div class="col-xs-4">
-						<input type="text" class="cajaTexto" placeholder="Usuario" id="txtUsuario">
+						<input type="text" class="cajaTexto" placeholder="Usuario" required id="txtUsuario" >
 					</div>
 					<div class="col-xs-4">
-						<input type="password" class="cajaTexto" placeholder="Contraseña" id="txtPassword">
+						<input type="password" class="cajaTexto" placeholder="Contraseña" required id="txtPassword" >
 					</div>
 					<div class="col-xs-4">
-						<select class="selectRol">					
+						<select class="selectRol" id="selectRoles">					
 							<option disabled selected>Rol del Usuario</option>
-							<option>Administrador</option>
-							<option>Usuario</option>
+							
 						</select>
 					</div>
 				</div>
@@ -56,10 +55,11 @@
 				<br>
 				<div class="row around-xs middle-xs">		
 					<div class="col-xs-6">
-						<button class="botonUsuarios" id="btnRegistrar">Registrar</button>
+						<button class="botonUsuarios" type="button" onclick="javascript:opcionesusuarios();">Inicio</button>
+					
 					</div>
 					<div class="col-xs-6">
-						<button class="botonUsuarios" type="button" onclick="javascript:opcionesusuarios();">Inicio</button>
+						<button class="botonUsuarios" id="btnRegistrar">Registrar</button>
 					</div>
 				</div>
 			</div>
@@ -104,7 +104,7 @@
 				                var cajaUsuario = $("#txtUsuario").val();
 				                var cajaPassword = $("#txtPassword").val();
 				                var cajaRol = $("#selectRoles").val();
-                                alert(cajaRol);
+                                
 							    
 
 							$.post('ws/wsUsuarios.php',
