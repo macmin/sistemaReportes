@@ -309,7 +309,48 @@
             }
             
             //comentario
-        }   
+        } 
+
+
+        $(function(){
+
+            $("#btnRegistrar").click(function(){
+                
+                
+                var cajaEan = $("#txtEan").val();
+                var cajaNombre = $("#txtNombre").val();
+                var cajaDescripcion = $("#txtDesc").val();
+                var cajaCodAlt = $("#txtcodAlt").val();
+                var cajaUserId = $("#hiddenId").val();
+
+                
+                $.post('ws/wsProductos.php',
+                    {
+                        WS:"addProducto",
+                        ean: cajaEan,
+                        nombre:cajaNombre,
+                        descripcion: cajaDescripcion,
+                        codAlt:cajaCodAlt,
+                        userId:cajaUserId
+                        
+
+
+                    },function(Respuesta){
+
+                        alert(Respuesta.Mensaje);
+                        if(Respuesta.codMensaje == 100)
+                            window.location =window.location;
+                        else if(Respuesta.codMensaje==200)
+                            alert(Respuesta.Datos);
+
+
+                    },"json");
+
+            });
+
+        });
+
+         
 
         </script>
 
