@@ -49,6 +49,10 @@
                     </div>
                 </div>
         <div>
+
+        
+
+
         <br>
         <br>
         <br>
@@ -68,6 +72,50 @@
         </div>
         <br>
         <br>
+        
+        <div class="ventanaModal" id="ventana1Modal">
+            <span class="cerrarModal" onclick="document.getElementById('ventana1Modal').style.visibility='hidden'">x
+            </span>
+            <center>
+                <br>
+                    <div class="contenedorProductosES">
+                    <div class="row around-xs center-xs">
+                        <div class="col-xs-6">
+                            <h2>EAN:</h2>
+                            <input type="text" class="cajaTexto" id="txtEan" required>
+                        </div>
+                        <div class="col-xs-6">
+                            <h2>Codigo Alterno:</h2>
+                            <input type="text" class="cajaTexto" id="txtcodAlt">
+                        </div>
+                    </div>
+
+                    <div class="row around-xs center-xs">
+                        <div class="col-xs-6">
+                            <h2>Nombre:</h2> 
+                            <input type="text" class="cajaTexto" id="txtNombre" >
+                        </div>
+                        <div class="col-xs-6">
+                            <h2>Descripcion:</h2>
+                            <input type="text" class="cajaTexto" id="txtDesc" >
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row around-xs center-xs">
+                        <div class="col-xs-6">
+                            
+                        </div>
+                        <div class="col-xs-6">
+                            <button class="boton" id="btnRegistrar">Registrar</button>  
+                        </div>
+                    <div>
+
+                </div>
+            </center>
+        </div>
+
+
         <script type="text/javascript">
         	
            function soloNumeros(e){
@@ -189,7 +237,8 @@
                                             }else if(Respuesta.codMensaje ==200){
                                                 
 
-                                                alert(Respuesta.Mensaje);
+                                                //alert(Respuesta.Mensaje);
+                                                ConfirmDemo();
 
                                             }
 
@@ -242,7 +291,16 @@
                 });
             });
 
+        function ConfirmDemo() {
             
+            var mensaje = confirm("El producto no esta registrado.¿Deseas agregarlo?");
+            
+            if (mensaje) {
+                document.getElementById('ventana1Modal').style.visibility='visible'
+            }
+            
+            //comentario
+        }   
 
         </script>
 

@@ -65,6 +65,32 @@
 
 			<script type="text/javascript">
 				
+
+
+
+	            $(document).ready(function(){
+
+											$.post('ws/wsUsuarios.php',{WS:"getRol"},function(Respuesta){
+												
+												var selectP=$("#selectRoles");
+
+												if(Respuesta.Datos.length > 0){
+
+													for(var i=0; i < Respuesta.Datos.length; i++){
+														
+														
+
+														selectP.append("<option value="+Respuesta.Datos[i].rolId+">"+Respuesta.Datos[i].nombre+"</option>");
+													
+													}
+
+												}
+											});
+				});
+
+
+
+
 				$(function(){
 
 							$("#btnRegistrar").click(function(){
@@ -75,7 +101,7 @@
 				                var cajaUsuario = $("#txtUsuario").val();
 				                var cajaPassword = $("#txtPassword").val();
 				                var cajaRol = $("#selectRoles").val();
-
+                                alert(cajaRol);
 							    
 
 							$.post('ws/wsUsuarios.php',
@@ -105,28 +131,6 @@
 						
 						    });
 	            });
-
-
-
-	            $(document).ready(function(){
-
-											$.post('ws/wsUsuarios.php',{WS:"getRol"},function(Respuesta){
-												
-												var selectP=$("#selectRoles");
-
-												if(Respuesta.Datos.length > 0){
-
-													for(var i=0; i < Respuesta.Datos.length; i++){
-														
-														
-
-														selectP.append("<option value="+Respuesta.Datos[i].rolId+">"+Respuesta.Datos[i].nombre+"</option>");
-													
-													}
-
-												}
-											});
-										});
 			</script>
 
  	<?php

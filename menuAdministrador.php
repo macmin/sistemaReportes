@@ -38,6 +38,8 @@
 	            <a href="cerrar_session.php" class="linkFormato text-black">Salir</a>
 	       		</form>
     		</center>
+    	</div>
+    	
 		</header>
 
 			<form class="contenedorAdmin">

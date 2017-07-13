@@ -40,6 +40,7 @@ header{
 #tblRespuesta{
 	 width: 96%;
 	 text-align: center;
+	 position: relative;
 	}
 
 #tblFechas{
@@ -133,6 +134,7 @@ header{
 }
 
 .boton{
+	background: linear-gradient(#FFDA63, #FFB940);
 	border: 0;
 	background: #006898;
 	color:white;
@@ -158,38 +160,13 @@ header{
 /*estilos usuarios*/
 
 .selectRol{
-	width: 70%;
-	font-size:25px;
+	width: 50%;
+	font-size:20px;
 	padding: 0 0 0 20px;
 	display: block;
 }
 
-.contenedorUsuario{
-	width: 80%;
-	padding: 30px;
-	border-radius: 0.3em;
-	border: 1px solid #bdbdbd;
-	margin-top: 50px;	
-}
-
-.botonUsuarios{
-	border: 0;
-	background: #006898;
-	color:white;
-	cursor: pointer;
-	border-radius: 0.3em;
-	margin-bottom: 0;
-	width: 50%;
-	font-size: 20px;
-	padding: 10px;
-}
-
-.botonUsuarios:hover{
-	transform: scale(0.95);
-}
-
 /*Modificar Usuario*/
-
 .botonesUsuario{
 	background: linear-gradient(#FFDA63, #FFB940);
 	border: 0;
@@ -233,7 +210,6 @@ header{
 	padding: 30px;
 	margin-top: 50px;
 	border-radius: 0.3em;
-	border: 1px solid #bdbdbd;
 }
 
 .contenedorAdmin a{
@@ -254,30 +230,60 @@ header{
 
 /*-----estilos ventana con datos-----*/
 
-    .cerrar{
-        float:right;
-        margin: 5px;
-        height:22px;
-        width:22px;
-        color:#ffffff;
-        background-color: #ff0000;
-        text-align:center;
-        cursor:pointer;
-    }
-    .ventana{
-        border: 2px solid #666666;
-        position: absolute;
-        width: 10%;
-        visibility: hidden;
-        border-radius: 5px;
-        padding: 10px;
-    }
-    #ventana1{
-        z-index: 10;
-        right: 0%;
-        top: 7.5%;
-        background-color: rgba(256,256,256,0.98);
-    }
+   .cerrar{
+       float:right;
+       margin: 5px;
+       height:22px;
+       width:22px;
+       color:#ffffff;
+       background-color: #ff0000;
+       text-align:center;
+       cursor:pointer;
+   }
+   .ventana{
+       border: 2px solid #666666;
+       position: absolute;
+       width: 10%;
+       visibility: hidden;
+       border-radius: 5px;
+       padding: 10px;
+   }
+   #ventana1{
+       z-index: 10;
+       right: 1%;
+       top: 5.5%;
+       background-color: rgba(256,256,256,0.98);
+   }
+    /*fin de estilos de ventana*/
+
+    /*Estilo de ventana modal para ingresar nuevo producto en entradas */
+   .cerrarModal{
+       float:right;
+       margin: 2px;
+       height:22px;
+       width:22px;
+       color:#ffffff;
+       background-color: #ff0000;
+       text-align:center;
+       cursor:pointer;
+   }
+   .ventanaModal{
+       border: 2px solid #666666;
+       position: absolute;
+       width: 45%;
+       height: 50%;
+       visibility: hidden;
+       border-radius: 5px;
+       padding: 10px;
+   }
+   #ventana1Modal{
+   	   position: absolute;adsd
+       z-index: 10;
+       right: 30%;
+       top: 15%;
+       background-color: rgba(256,256,256,0.98);
+   }
+
 
 /*fin de estilos de ventana*/
     
@@ -288,7 +294,7 @@ header{
 	cursor: pointer;
 	border-radius: 0.3em;
 	margin-bottom: 0;
-	width: 80%;
+	width: 40%;
 	font-size: 20px;
 	padding: 10px;
 }
@@ -395,9 +401,6 @@ header{
 	transform: scale(0.95);
 }
 
-.boton-home{
-	cursor: pointer;
-}
 /*estilos opcionUsuario.php*/
 
 .tablaUsuarios{
@@ -506,63 +509,11 @@ header{
 	margin-top: 50px;
 }
 
-/*-----------------estilos cargarArchivo------------------------------------------------------*/
-.cont-cargarArchivo{
-	width: 500px;
+.contenedorProductosES{
+	width: 800px;
+	margin: auto;
+	background-color: #3D8C99;
 	padding: 30px;
-	border-radius: 0.3em;
-	border: 1px solid #bdbdbd;
-	margin-top: 50px;
-}
-
-.botones-cargarArchivo{
-	border: 0;
-	background: #006898;
-	color:white;
-	cursor: pointer;
-	border-radius: 0.3em;
-	margin-bottom: 0;
-	width: 30%;
-	font-size: 20px;
-	padding: 10px;
-}
-
-.botones-cargarArchivo:hover{
-	transform: scale(0.95);
-}
-.bt-regresar{
-	border: 0;
-	background: #006898;
-	color:white;
-	cursor: pointer;
-	border-radius: 0.3em;
-	margin-bottom: 0;
-	width: 10%;
-	font-size: 20px;
-	padding: 10px;
-}
-
-.bt-regresar:hover{
-	transform: scale(0.95);
-}
-
-
-.bt-cargarArchivo{
-	border: 0;
-	background: #006898;
-	color:white;
-	cursor: pointer;
-	border-radius: 0.3em;
-	margin-bottom: 0;
-	width: 20%;
-	font-size: 20px;
-	padding: 10px;
-}
-
-.bt-cargarArchivo:hover{
-	transform: scale(0.95);
-}
-
-#archivo{
-	display: none;
+	border: 1px solid rgba(0,0,0,0.9);
+	margin-top: 20px;
 }
