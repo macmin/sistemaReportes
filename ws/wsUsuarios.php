@@ -189,6 +189,44 @@ class wsUsuarios
 
 
                 break;
+
+            case 'modUsuario':
+                $userId = $this -> getPOST('userId');
+                $status = $this -> getPOST('status');
+
+                if($status == "Activo"){
+                        $nuevoStatus =0;
+                }else {
+                        $nuevoStatus=1;
+                }
+
+                $modificacion = $this -> usuario -> modUsuario($userId,$nuevoStatus);
+
+                if($modificacion){
+                            $respuesta = array("Mensaje" => "Usuarios Modificado",
+                                                "codMensaje" => 100,
+                                                "Datos" => []
+                                                );
+
+                        echo json_encode($respuesta);
+                        
+                           
+
+
+                } else {
+                            $respuesta = array("Mensaje" => "¡Error!, no encontro usuario. ",
+                                    "codMensaje" => 200,
+                                    "Datos" => []
+                                    );
+
+                                 echo json_encode($respuesta);
+                    
+                } 
+
+
+
+
+                break;
            
         	case 'N0':
 

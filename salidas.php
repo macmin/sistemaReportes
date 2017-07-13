@@ -28,10 +28,12 @@
         <script src="js/link.js"></script>
 	</head>
 	 <body>
+
      <div class="marca-de-agua">
                 <img src="css/fondo.jpg">
         </div>
      <input type="text" id="hidden" value="<?php echo  $_SESSION['userId']?>">
+
         <header>
                 <h1 class="encabezado">Salidas</h1>
         </header>
