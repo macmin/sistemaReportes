@@ -44,12 +44,19 @@ class wsUsuarios
                                     $_SESSION["userId"] = $consulta[0][1];
 
                                         header("location:../menuAdministrador.php");
+                                
                                 }else if( $_SESSION["statusId"] = $consulta[0][3] == 0){
-                                    #el usuario esta dado de baja
+                                    $_SESSION['no_session'] = "Usuario invalido";
+                                    json_encode($_SESSION['no_session']); 
+                                    header("location:../login.php");
+                                
+                                
+
                                 }else if(count($consulta) <0 ){
-                                       
-                                      $_SESSION['no_session'] = "Usuario invalido"; 
-                                      //header("location:../login.php");
+                                    $_SESSION['no_session'] = "Usuario invalido";
+                                    json_encode($_SESSION['no_session']); 
+                                    header("location:../login.php");
+                                     
                                 }        
                                       
 
@@ -214,7 +221,7 @@ class wsUsuarios
 
 
                 } else {
-                            $respuesta = array("Mensaje" => "¡Error!, no encontro usuario. ",
+                            $respuesta = array("Mensaje" => "¡Error!, no se puede dar de baja. ",
                                     "codMensaje" => 200,
                                     "Datos" => []
                                     );

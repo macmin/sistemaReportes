@@ -48,7 +48,7 @@ class USUARIOS extends Connection
 
     public function getUsuarios()
     {
-    	$this -> setQuery("select username, password,nombre,app,apm,statusId from users");
+    	$this -> setQuery("select username, password,nombre,app,apm,statusId,userId from users");
     	$this -> Ejecutar();
 
     	while($row = $this-> getResult() -> fetch_array() )
@@ -57,6 +57,22 @@ class USUARIOS extends Connection
         return $resultados;
 
 
+    }
+
+    public function modUsuario($userId,$nuevoStatus)
+    {
+        if( $userId == 1 ){
+            
+
+            return false;
+            exit;
+
+        }
+        $this -> setQuery("update users set statusId= $nuevoStatus where userId = $userId");
+        $this -> Ejecutar();
+
+        return $this -> getIsCorrect();
+   
     }
 
 
