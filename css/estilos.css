@@ -325,6 +325,18 @@ header{
 
    }
 
+    @media(max-width:1366px){
+   	.ventanaModal{
+       width: 60%;
+       height: 70%;
+   }
+
+   #ventana1Modal{
+       right: 20%;
+
+   }
+}
+
    #clasBaja{
    		background-color: #f44336;
 		border: 0;
