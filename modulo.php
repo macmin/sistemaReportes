@@ -56,6 +56,9 @@ foreach ($lineas as $linea_num => $linea)
     <header>
        <h1 class="encabezado">Datos Guardados</h1>
     </header>
+      <div class="marca-de-agua">
+        <img src="css/fondo.jpg">
+    </div>
     <br>
     <br>
     <br>

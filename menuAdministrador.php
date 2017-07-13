@@ -28,7 +28,6 @@
 				<i class="fa fa-user-circle fa-3x icono" aria-hidden="true" onclick="document.getElementById('ventana1').style.visibility='visible'"></i>
 			</div>
 		</div>
-		
 		<div class="ventana" id="ventana1">
     		<span class="cerrar" onclick="document.getElementById('ventana1').style.visibility='hidden'">x
     		</span>
@@ -41,7 +40,9 @@
     	</div>
     	
 		</header>
-
+			<div class="marca-de-agua">
+				<img src="css/fondo.jpg">
+			</div>
 			<form class="contenedorAdmin">
 				<div class="row around-xs center-xs">
     				<div class="col-xs-6">
@@ -66,15 +67,13 @@
 				<br>
 				<br>
 			</center>
-
-			</form>
-
+			</form>	
 	</body>
 
 
 
 <?php
- 
+
 	}else{
    		echo "no hay session";
 	}
