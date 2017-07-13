@@ -61,11 +61,18 @@ class USUARIOS extends Connection
 
     public function modUsuario($userId,$nuevoStatus)
     {
-        
+        if( $userId == 1 ){
+            
+
+            return false;
+            exit;
+
+        }
         $this -> setQuery("update users set statusId= $nuevoStatus where userId = $userId");
         $this -> Ejecutar();
 
         return $this -> getIsCorrect();
+   
     }
 
 

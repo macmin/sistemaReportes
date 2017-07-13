@@ -316,11 +316,44 @@ header{
        padding: 10px;
    }
    #ventana1Modal{
-   	   position: absolute;adsd
-       z-index: 10;
+   	   position: absolute;
+       z-index: 100;
        right: 30%;
        top: 15%;
        background-color: rgba(256,256,256,0.98);
+
+   }
+
+   #clasBaja{
+   		background-color: #f44336;
+		border: 0;
+		color: white;
+		cursor: pointer;
+		border-radius: 0.3em;
+		margin-bottom: 0;
+		width: 100%;
+		font-size: 11px; 
+		padding: 10px; 
+
+   }
+   #clasBaja:hover{
+   		transform: scale(0.95);
+   }
+
+    #clasAlta{
+   		background-color: #66bb6a;
+		border: 0;
+		color: white;
+		cursor: pointer;
+		border-radius: 0.3em;
+		margin-bottom: 0;
+		width: 100%;
+		font-size: 11px; 
+		padding: 10px; 
+
+   }
+   #clasBaja:hover{
+   		transform: scale(0.95);
    }
 
 

@@ -76,7 +76,7 @@
                             data.apm,
                             data.statusId == 1 ?  "Activo" : "Inactivo",
                             //data.statusId == 1 ? "Activo" : "Inactivo"
-                            data.statusId ==1 ? "<button type ='button' class='editar'>Dar de baja </button>" : "<button type ='button' class='editar'>Dar de alta </button>",
+                            data.statusId ==1 ? "<button type ='button' id='clasBaja' class='editar'>Dar de baja </button>" : "<button type ='button' class='editar' id='clasAlta'>Dar de alta </button>",
                             data.userId 
                             //data.statusId == 1 ?  "<button value=1>Dar baja</button>" : "Inactivo"
                             
@@ -95,7 +95,7 @@
                     var data = table.row( $(this).parents("tr") ).data();
                     var idUsuario = data[6];
                     var cajaStatus = data [4];
-                    alert(idUsuario);
+                    
                     console.log(data);
 
                     $.post("ws/wsUsuarios.php",{WS:"modUsuario",userId : idUsuario,status : cajaStatus},function(respuesta){
