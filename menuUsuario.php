@@ -10,10 +10,14 @@
 	</head>
 	<body>
 		<header>
-			<h1>Usuarios</h1>
+			<h1 class="encabezado">Usuarios</h1>
 		</header>
-			<form class="contenedor">
-				<center>
+		<div class="marca-de-agua">
+				<img src="css/fondo.jpg">
+		</div>
+		<center>
+			<form class="contenedorOpciones">
+				
 					<button class="botonMenu" type="button" onclick="javascript:productos();">Productos</button>
 					<br>
 					<br>
@@ -29,8 +33,7 @@
 					<br>
 					<br>
 					<button class="botonMenu" type="button" onclick="javascript:login();">Inicio</button>
-				</center>
 			</form>
-	
+		</center>
 	</body>
 </html>

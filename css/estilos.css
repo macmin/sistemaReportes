@@ -164,12 +164,22 @@ header{
 	display: block;
 }
 
+.contenedorOpciones{
+	width: 450px;
+	padding: 30px;
+	border-radius: 0.3em;
+	z-index: 90;
+	position: relative;
+	margin-top: 10%;
+}
+
 .contenedorUsuario{
 	width: 80%;
 	padding: 30px;
 	border-radius: 0.3em;
-	border: 1px solid #bdbdbd;
-	margin-top: 50px;	
+	z-index: 90;
+	position: relative;
+	margin-top: 10%;	
 }
 
 .botonUsuarios{
@@ -217,6 +227,9 @@ header{
 	width: 10%;
 	font-size: 20px;
 	padding: 4px;
+	z-index: 90;
+	position: relative;
+
 }
 
 .botonRegresar:hover{
@@ -229,11 +242,11 @@ header{
 .contenedorAdmin{
 	width: 40%;
 	margin: auto;
-	background-color:white;
 	padding: 30px;
-	margin-top: 50px;
+	margin-top: 13%;
 	border-radius: 0.3em;
-	border: 1px solid #bdbdbd;
+	z-index: 90;
+	position: relative;
 }
 
 .contenedorAdmin a{
@@ -497,6 +510,8 @@ header{
 	width: 30%;
 	font-size: 20px;
 	padding: 10px;
+	z-index: 90;
+	position: relative; 
 }
 
 .botonReporte:hover{
@@ -527,6 +542,8 @@ header{
 	width: 30%;
 	padding: 5px;
 	font-size: 15px;
+	z-index: 90;
+	position: relative;
 }
 
 /*estilos para addProductos*/
@@ -534,10 +551,11 @@ header{
 .contenedorProductos{
 	width: 800px;
 	margin: auto;
-	background-color: #3D8C99;
 	padding: 30px;
-	border: 1px solid rgba(0,0,0,0.9);
-	margin-top: 50px;
+	border-radius: 0.3em;
+	z-index: 90;
+	position: relative;
+	margin-top: 10%;
 }
 
 .contenedorProductosES{
@@ -545,6 +563,7 @@ header{
 	margin: auto;
 	padding: 30px;
 	border-radius: 0.3em;
+	background-color: #e0e0e0;
 	border: 1px solid #bdbdbd;
 	margin-top: 20px;
 }
@@ -553,9 +572,9 @@ header{
 .cont-cargarArchivo{
 	width: 500px;
 	padding: 30px;
-	border-radius: 0.3em;
-	border: 1px solid #bdbdbd;
-	margin-top: 50px;
+	z-index: 90;
+	position: relative;
+	margin-top: 10%;
 }
 
 .botones-cargarArchivo{
@@ -583,6 +602,8 @@ header{
 	width: 10%;
 	font-size: 20px;
 	padding: 10px;
+	z-index: 90;
+	position: relative;
 }
 
 .bt-regresar:hover{
@@ -608,4 +629,23 @@ header{
 
 #archivo{
 	display: none;
+}
+
+/*-----------------fondo marca de agua---------------------------------*/
+.marca-de-agua {
+    background-image: url("css/fondo.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background: fixed;
+    width: 100%;
+    height: auto;
+    margin-top:80px;
+    opacity: 0.5;
+   	position: absolute;
+}
+.marca-de-agua img {
+   
+    width: 100%;
+    height: auto;
+    opacity: 0.5;
 }
