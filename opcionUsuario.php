@@ -20,8 +20,11 @@ session_start();
 		<header>
 			<h1 class="encabezado">Opciones para usuarios</h1>
 		</header>
+		<div class="marca-de-agua">
+                <img src="css/fondo.jpg">
+        </div>
 		<center>
-			<form class="contenedor">
+			<form class="contenedorOpciones">
 				
 					<button class="boton" type="button" onclick="javascript:usuarios();">Adicionar Usuario</button>
 					<br>
@@ -40,7 +43,7 @@ session_start();
 
      </center>
 
-	<?php
+	<?php 
 		}else{
 			echo "No hay sesion";
 		}

@@ -20,7 +20,9 @@
 	<header>
 		<h1 class="encabezado">Adicionar Producto</h1>
 	</header>
-
+	<div class="marca-de-agua">
+				<img src="css/fondo.jpg">
+		</div>
 	<input type="hidden" id="hiddenId" value="<?php echo $_SESSION['userId'];?>">
 
 	<div class="contenedorProductos">

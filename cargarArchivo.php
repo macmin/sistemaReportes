@@ -11,6 +11,9 @@
 		<header>
 			<h1 class="encabezado">Cargar Archivo</h1>
 		</header>
+		<div class="marca-de-agua">
+				<img src="css/fondo.jpg">
+		</div>
 		<center>
 			<form class="cont-cargarArchivo" action="modulo.php" enctype="multipart/form-data" method="post" onsubmit="return validar();">
    				<input id="archivo" accept=".csv" name="archivo" type="file"> 
