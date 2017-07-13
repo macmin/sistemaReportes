@@ -28,7 +28,7 @@
         <script src="js/link.js"></script>
 	</head>
 	 <body>
-     <input type="text" id="hidden" value="<?php echo  $_SESSION['userId']?>">
+     <input type="hidden" id="hiddenId" value="<?php echo  $_SESSION['userId']?>">
         <header>
                 <h1 class="encabezado">Salidas</h1>
         </header>

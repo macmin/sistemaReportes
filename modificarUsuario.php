@@ -37,7 +37,9 @@
                         <th>Apellido Paterno</th>
                         <th>Apellido Materno</th>
         				<th>Estatus</th>
-                        <th>Acciones</th>
+                        <th></th>
+                        
+
         			</tr>	
         		</thead>
         		<tbody>
@@ -69,29 +71,50 @@
                             data.nombre,
                             data.app,
                             data.apm,
-                            data.statusId,
+                            data.statusId == 1 ?  "Activo" : "Inactivo",
                             //data.statusId == 1 ? "Activo" : "Inactivo"
-
-                            data.statusId == 1 ? "<select id='selectStatus' ><option value='1'>Activo</option><option value='0'>Inactivo</option></select>" : "Inactivo"
+                            data.statusId ==1 ? "<button type ='button' class='editar'>Dar de baja </button>" : "<button type ='button' class='editar'>Dar de alta </button>",
+                            data.userId 
+                            //data.statusId == 1 ?  "<button value=1>Dar baja</button>" : "Inactivo"
                             
                         ]);
                     });
                     table.rows().draw();
                 });
+
+                obterner_data("#tblRespuesta tbody",table);
         	});
+
+
+
+            var obterner_data = function(tbody,table){
+                $(tbody).on("click","button.editar",function(){
+                    var data = table.row( $(this).parents("tr") ).data();
+                    var idUsuario = data[6];
+                    var cajaStatus = data [4];
+                    alert(idUsuario);
+                    console.log(data);
+
+                    $.post("ws/wsUsuarios.php",{WS:"modUsuario",userId : idUsuario,status : cajaStatus},function(respuesta){
+                        
+                        alert(respuesta.Mensaje);
+                        if(respuesta.codMensaje == 100){
+                            window.location =window.location;
+                        } 
+                        
+                    });
+
+
+
+
+                })
+            }
+            
+
         </script>
 
 
-        <script >
-
-            $(document).ready(function(){
-                $("#selectStatus").change(function(){
-                alert($('#selectStatus').val());
-            
-                });
-            });    
-            
-        </script>
+        
 
         <br>
         <br>
