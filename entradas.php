@@ -30,11 +30,21 @@
 	 <body>
         <input type="hidden" id="hiddenId" value="<?php echo  $_SESSION['userId']?>">
         <header>
-                <h1>Entradas</h1>
+                 <h1 class="encabezado">Entradas</h1>
         </header>
         <br>
         <br>
-          <div class="row around-xs center-xs">
+        <div class="row around-xs center-xs">
+            <div class="col-xs-6">
+                <button class="botonReporte" type="button" onclick="javascript:productos();">Regresar</button>
+            </div>
+            <div class="col-xs-6">
+                <button class="botonReporte" type="button" id="botonGuardar" >Guardar</button>
+            </div>
+        </div>
+        <br>
+        <br>   
+        <div class="row around-xs center-xs">
                     <div class="col-xs-6">
 
                         <input type="text" class="cajaES alineacionTexto" id="caja" placeholder="EAN" autofocus="autofocus" onkeypress="validar(event)">
@@ -89,7 +99,6 @@
                             <input type="text" class="cajaTexto" id="txtcodAlt">
                         </div>
                     </div>
-
                     <div class="row around-xs center-xs">
                         <div class="col-xs-6">
                             <h2>Nombre:</h2> 
@@ -304,17 +313,9 @@
 
         </script>
 
-        <div class="row around-xs center-xs">
-            <div class="col-xs-6">
-                <button class="botonReporte" type="button" onclick="javascript:productos();">Regresar</button>
-            </div>
-            <div class="col-xs-6">
-                <button class="botonReporte" type="button" id="botonGuardar" >Guardar</button>
-            </div>
-        </div>    
-
 
 <?php
+
     }else{
         echo "No hay sesion";
     }

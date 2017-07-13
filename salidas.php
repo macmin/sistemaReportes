@@ -30,11 +30,21 @@
 	 <body>
      <input type="text" id="hidden" value="<?php echo  $_SESSION['userId']?>">
         <header>
-                <h1>Salidas</h1>
+                <h1 class="encabezado">Salidas</h1>
         </header>
         <br>
         <br>
-          <div class="row around-xs center-xs">
+         <div class="row around-xs center-xs">
+            <div class="col-xs-6">
+                <button class="botonReporte" type="button" onclick="javascript:productos();">Regresar</button>
+            </div>
+            <div class="col-xs-6">
+                <button class="botonReporte" type="button" id="botonGuardar" >Guardar</button>
+            </div>
+        </div>    
+        <br>
+        <br>
+        <div class="row around-xs center-xs">
                     <div class="col-xs-6">
 
                         <input type="text" class="cajaES alineacionTexto" id="caja" placeholder="EAN" autofocus="autofocus" onkeypress="validar(event)">
@@ -211,14 +221,7 @@
 
         </script>
 
-        <div class="row around-xs center-xs">
-            <div class="col-xs-6">
-                <button class="botonReporte" type="button" onclick="javascript:productos();">Regresar</button>
-            </div>
-            <div class="col-xs-6">
-                <button class="botonReporte" type="button" id="botonGuardar" >Guardar</button>
-            </div>
-        </div>    
+       
 
 
 <?php
@@ -228,7 +231,7 @@
 
 
 ?>
-       
+      
 				
     </body>
 </html> 

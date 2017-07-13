@@ -18,7 +18,7 @@
 	</head>
 	<body>
 	<header>
-		<h1>Adicionar Producto</h1>
+		<h1 class="encabezado">Adicionar Producto</h1>
 	</header>
 
 	<input type="hidden" id="hiddenId" value="<?php echo $_SESSION['userId'];?>">
