@@ -26,6 +26,9 @@
         <header>
                 <h1 class="encabezado">Usuarios</h1>
         </header>
+        <div class="marca-de-agua">
+                <img src="css/fondo.jpg">
+        </div>
         <br>
         <br>
         <div>

@@ -40,6 +40,9 @@
             </div>
         </div>   
         </header>
+        <div class="marca-de-agua">
+                <img src="css/fondo.jpg">
+        </div>
         <br>
         <br>
         <div class="row around-xs center-xs">

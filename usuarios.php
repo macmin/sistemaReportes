@@ -1,4 +1,4 @@
-<?php
+<?php 
 	session_start();
     
     if( isset( $_SESSION['name'] ) and isset( $_SESSION['userId'] ) ) {
@@ -20,6 +20,9 @@
 		<header>
 			<h1 class="encabezado">Usuarios</h1>
 		</header>
+		<div class="marca-de-agua">
+                <img src="css/fondo.jpg">
+        </div>
 		<center>
 			<div class="contenedorUsuario">
 				<i class="fa fa-user-circle fa-5x centrar" aria-hidden="true"></i>
