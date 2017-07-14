@@ -35,7 +35,7 @@ function modificarusuarios(){
 			}
 
 function menuadministrador(){
-				window.location="menuAdministrador.php";
+				window.location="cargarArchivo.php";
 			}
 
 function registrar(){

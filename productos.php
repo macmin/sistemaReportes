@@ -25,37 +25,58 @@
     	<script type="text/javascript" src="DataTable/buttons.print.js"></script>
 		<link rel="stylesheet" href="css/flexboxgrid.min.css">
         <script src="js/link.js"></script>
+        <script src="js/Loading.js"></script>
 	</head>
 	 <body>
-        <header>
-        <div class="row around-xs center-xs">
-            <div class="col-xs-4">
-            <i class="fa fa-home fa-3x boton-home" aria-hidden="true"  onclick="window.location='menuAdministrador.php'";></i>
+        <header class="header">
+            <div class="row around-xs center-xs">
+                <div class="col-xs-4">
+                    <h1 class="header__title">Productos</h1>
+                </div>
+                <div class="col-xs-4">
+                    <nav class="header__nav">
+                        <ul class="header__tabs">
+                            <li class="header__tab">
+                                <a class="header__link" href="opcionUsuario.php">Usuarios</a>
+                            </li>
+                            <li class="header__tab">
+                                <a class="header__link" href="productos.php">Productos</a>
+                            </li>
+                            <li class="header__tab">
+                                <a class="header__link" href="cargarArchivo.php">Archivo</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-xs-4">
+                    <i class="fa fa-user-circle fa-3x icono" style="color:white;" aria-hidden="true" onclick="document.getElementById('ventana1').style.visibility='visible'"></i>
+                </div>     
             </div>
-             <div class="col-xs-4">
-                <h1 class="encabezado">Productos</h1>
+            <div class="ventana" id="ventana1">
+                <span class="cerrar" onclick="document.getElementById('ventana1').style.visibility='hidden'">x
+                </span>
+                <center>
+                    <br>
+                    <form>
+                        <a href="cerrar_session.php" class="linkFormato text-black">Salir</a>
+                    </form>
+                </center>
             </div>
-            <div class="col-xs-4">
-                
-            </div>
-        </div>   
         </header>
+        <!--termina la navegacion-->
         <div class="marca-de-agua">
                 <img src="css/fondo.jpg">
         </div>
         <br>
         <br>
         <div class="row around-xs center-xs">
-            <div class="col-xs-3">
+            <div class="col-xs-4">
                 <button class="botonProductos" onclick="javascript:addproductos();">Adicionar Producto</button>
             </div>      
-            <div class="col-xs-3">      
-                <button class="botonProductos" onclick="javascript:bajaproductos();">Dar de Baja Producto</button>
-            </div>
-            <div class="col-xs-3">      
+            <div class="col-xs-4">      
                 <button class="botonProductos" onclick="javascript:addEntrada();"> Adicionar Entrada</button>
             </div>
-            <div class="col-xs-3">      
+            <div class="col-xs-4">      
                 <button class="botonProductos" onclick="javascript:addSalida();">Adicionar Salida</button>
             </div>
 
@@ -82,6 +103,7 @@
         </div>
         <script type="text/javascript">
         	var table;
+            
         	$(document).ready(function() {
                 
         		table = $("#tblRespuesta").DataTable({
@@ -98,7 +120,7 @@
         				}
         			]
         		});
-
+                $.Loading(true,"Cargando datos");
                 $.post("ws/wsProductos.php",{WS:"getProductos"},function(res){
                     table.rows().remove().draw();
                     $.each(res.Datos,function(index,data){
@@ -114,20 +136,16 @@
                         ]);
                     },"json");
                     table.rows().draw();
-                    
+                     $.Loading(false,"Cargando datos");
                 });
         	});
+           
         </script>
 
         <br>
         <br>
         <br>
         </div>
-                 <br>
-                <center>
-                     <button class="botonRegresar" type="button" onclick="javascript:menuadministrador();">Regresar</button>
-                </center>
-
     </body>
 
 <?php

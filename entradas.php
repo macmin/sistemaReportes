@@ -42,18 +42,14 @@
                 <button class="botonReporte" type="button" onclick="javascript:productos();">Regresar</button>
             </div>
             <div class="col-xs-6">
-                <button class="botonReporte" type="button" id="botonGuardar" >Guardar</button>
+               
             </div>
         </div>
         <br>
         <br>   
         <div class="row around-xs center-xs">
                     <div class="col-xs-6">
-
                         <input type="text" class="cajaES alineacionTexto" id="caja" placeholder="EAN" autofocus="autofocus" onkeypress="validar(event)">
-
-                        
-
                     </div>      
                     <div class="col-xs-6">      
                         Cantidad:
@@ -72,7 +68,7 @@
         <br>
         	<table id='tblRespuesta'>
         		<thead>
-        			<tr>
+        			<tr class="colortitulo">
         				<th>Id</th>
                         <th>Ean</th>
         				<th>Nombre</th>
@@ -125,8 +121,13 @@
 
                 </div>
             </center>
+            
         </div>
-
+         <div class="row around-xs center-xs">
+                <div class="col-xs-6">
+                    <button class="botonReporte" type="button" id="botonGuardar" >Guardar</button>
+                </div>
+            </div>
 
         <script type="text/javascript">
         	
