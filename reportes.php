@@ -31,11 +31,13 @@
     </head>
     <body>
         <header>
-            <h1>Reportes</h1>
+            <h1 class="encabezado">Reportes</h1>
         </header>
         <br>
         <br>
-        <h2 class="text-black">Generar reporte por:</h2>
+        <center>
+            <h2 class="text-black">Generar reporte por :</h2>
+        </center>
         <br>
         <br>
         <div class="row around-xs center-xs">

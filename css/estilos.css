@@ -86,7 +86,8 @@ header{
 
 /*estilos login*/
 
-.encabezado{
+.encabezado,
+.header__title{
 	text-align:center;
 	color:white;
 	font:bold;
@@ -169,6 +170,7 @@ header{
 .contenedorOpciones{
 	width: 450px;
 	padding: 30px;
+	background-color: rgba(238,238,238,0.8);
 	border-radius: 0.3em;
 	z-index: 90;
 	position: relative;
@@ -178,6 +180,7 @@ header{
 .contenedorUsuario{
 	width: 80%;
 	padding: 30px;
+	background-color: rgba(238,238,238,0.8);
 	border-radius: 0.3em;
 	z-index: 90;
 	position: relative;
@@ -466,11 +469,10 @@ header{
 	background:#006898;
 	border: 0;
 	color: white;
-	opacity: 0.8;
 	cursor: pointer;
 	border-radius: 0.3em;
 	margin-bottom: 0;
-	width: 70%;
+	width: 40%;
 	font-size: 15px;
 	padding: 10px;
 }
@@ -600,6 +602,7 @@ header{
 	width: 800px;
 	margin: auto;
 	padding: 30px;
+	background-color: rgba(238,238,238,0.8);
 	border-radius: 0.3em;
 	z-index: 90;
 	position: relative;
@@ -620,6 +623,7 @@ header{
 .cont-cargarArchivo{
 	width: 500px;
 	padding: 30px;
+	background-color: rgba(238,238,238,0.8);
 	z-index: 90;
 	position: relative;
 	margin-top: 10%;
@@ -697,3 +701,25 @@ header{
     height: auto;
     opacity: 0.5;
 }
+
+/*-----------------------menu principal---------------------------------*/
+.header__tabs {
+	display: flex;
+	justify-content: flex-end;
+	list-style: none;
+	width: 100%;
+}
+
+
+.header__link{
+	display: block;
+	padding: 10px 30px;
+	color: #fff;
+	text-decoration: none;
+	font-size: 25px;
+}
+ 
+.header__tab:hover{
+	background: rgba(0,0,0,0.5);
+}
+

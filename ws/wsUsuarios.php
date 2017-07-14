@@ -43,7 +43,7 @@ class wsUsuarios
                                     $_SESSION["name"] = $consulta[0][0];
                                     $_SESSION["userId"] = $consulta[0][1];
 
-                                        header("location:../menuAdministrador.php");
+                                        header("location:../productos.php");
                                 
                                 }else if( $_SESSION["statusId"] = $consulta[0][3] == 0){
                                     $_SESSION['no_session'] = "Usuario invalido";

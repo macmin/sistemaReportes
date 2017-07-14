@@ -55,7 +55,7 @@
 				<br>
 				<div class="row around-xs middle-xs">		
 					<div class="col-xs-6">
-						<button class="botonUsuarios" type="button" onclick="javascript:opcionesusuarios();">Inicio</button>
+						<button class="botonUsuarios" type="button" onclick="javascript:opcionesusuarios();">Regresar</button>
 					
 					</div>
 					<div class="col-xs-6">
