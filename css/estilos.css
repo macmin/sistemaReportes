@@ -109,6 +109,8 @@ header{
 	border-radius: 0.3em;
 	border: 1px solid #bdbdbd;
 	margin-top: 50px;
+	position: relative;
+	z-index:10;
 }
 
 .margenes{

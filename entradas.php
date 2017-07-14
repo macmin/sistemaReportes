@@ -227,7 +227,7 @@
 
                         if(c==0){
                                 $.post('ws/wsProductos.php',{
-                                    WS:"consultaEan",
+                                    WS:"consultaEanE",
                                     ean:Ean,
                                     cantidad:cajaCantidad
                                     },function(Respuesta){
@@ -296,6 +296,8 @@
                             },function(Respuesta){
 
                             	 alert(Respuesta.Mensaje);
+                                 if(Respuesta.codMensaje==100)
+                                    window.location =window.location;
 
                             },"");
 

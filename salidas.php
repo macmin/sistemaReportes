@@ -31,7 +31,11 @@
         <div class="marca-de-agua">
             <img src="css/fondo.jpg">
         </div>
-        <input type="hidden" id="hidden" value="<?php echo  $_SESSION['userId']?>">
+
+ 
+     <input type="hidden" id="hiddenId" value="<?php echo  $_SESSION['userId']?>">
+
+
         <header>
                 <h1 class="encabezado">Salidas</h1>
         </header>
@@ -200,7 +204,7 @@
                 $("#botonGuardar").click(function(){
 
                     var consulta = $("#tblRespuesta tbody tr");
-                    var idUser = $("hiddenId").value;
+                    var idUser = $("#hiddenId").val();
 
                     $.each(consulta,function(index,tr){ 
                     	
@@ -212,13 +216,16 @@
                         
 
                         $.post('ws/wsProductos.php',{
-                                WS:"addMovimiento",
+                                WS:"addMovimientoS",
                                 productoId:cajaId,
                                 tipoM:4,
                                 cantidad:cajaCantidad, 
                                 user:idUser 
                             },function(Respuesta){
                                 alert(Respuesta.Mensaje);
+                                if(Respuesta.codMensaje ==100)
+                                    window.location =window.location;
+
                             },"");
 
 
