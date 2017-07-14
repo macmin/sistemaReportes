@@ -157,7 +157,7 @@ class wsProductos
 
                     }else {
 
-                            $respuesta = array("Mensaje" => "¡Error!, no existe el producto ",
+                            $respuesta = array("Mensaje" => "¡Error!, no existe el producto o no hay existencia del producto",
                                         "codMensaje" => 200,
                                         "Datos" => []
                                         );
@@ -179,7 +179,73 @@ class wsProductos
 
 
                 break;
+            
+            case 'consultaEanE':
 
+                $Ean= $this-> getPOST("ean"); 
+                $cantidad = $this->getPOST("cantidad");
+
+
+                $errors=array();
+
+
+                if(empty($Ean))
+                    $errors[]="No ingresaste el codigo de barras";
+
+                if(count($errors) == 0  ){ 
+
+                    $consulta = $this-> producto -> getConsultaEanE($Ean,$cantidad);
+                
+
+                    if($consulta) {
+
+                                if(count($consulta) > 0 ){
+
+                                    $respuesta = array("Mensaje" => "Producto obtenido",
+                                                        "codMensaje" => 100,
+                                                        "Datos" => $consulta
+                                                        
+                                                        );
+
+                                         echo json_encode($respuesta);
+                                   
+                                }else{
+
+                                     $respuesta = array("Mensaje" => "¡Error!, no existe el producto ",
+                                        "codMensaje" => 200,
+                                        "Datos" => []
+                                        );
+
+                                     echo json_encode($respuesta);
+
+                                }
+
+                                
+
+                    }else {
+
+                            $respuesta = array("Mensaje" => "¡Error!, no existe el producto o no hay existencia del producto",
+                                        "codMensaje" => 200,
+                                        "Datos" => []
+                                        );
+
+                                     echo json_encode($respuesta);
+                    }
+
+                }
+
+                if(isset($errors) and count($errors) > 0 ){
+
+                    
+                    $respuesta = array("Mensaje" => "Error",
+                                    "codMensaje" => 200,
+                                    "Datos" => $errors
+                                    );
+                        echo json_encode($respuesta);
+                }  
+
+
+                break;
             case 'addMovimiento':
 
             	$prodId = $this -> getPOST("productoId");
@@ -187,9 +253,12 @@ class wsProductos
             	$cantidad = $this -> getPOST("cantidad");
             	$user = $this -> getPOST("user");
 
-
+                if($tipoM == 3){
             	$movimiento = $this -> producto -> insertMovimiento($prodId,$tipoM,$cantidad,$user);
-
+                }
+                else if ($tipoM == 4) {
+                    $movimiento = $this -> producto -> insertMovimientoS($prodId,$tipoM,$cantidad,$user);
+                }
                 if($movimiento) {
 
                     			 
@@ -217,7 +286,44 @@ class wsProductos
 
 
             	break;
+            
+            case 'addMovimientoS':
 
+                $prodId = $this -> getPOST("productoId");
+                $tipoM= $this-> getPOST("tipoM");
+                $cantidad = $this -> getPOST("cantidad");
+                $user = $this -> getPOST("user");
+
+                
+                $movimiento = $this -> producto -> insertMovimientoS($prodId,$tipoM,$cantidad,$user);
+                
+                if($movimiento == true) {
+
+                              //  if(count($movimiento) > 1) { 
+                                    $respuesta = array("Mensaje" => "Movimiento de productos correcto ",
+                                                        "codMensaje" => 100,
+                                                        "Datos" => $movimiento
+                                                       );
+
+                                         echo json_encode($respuesta);
+
+                            //    }
+                                    
+                                
+                }else {
+
+                            $respuesta = array("Mensaje" => "¡Error!, no hay suficientes productos para dar de baja",
+                                        "codMensaje" => 200,
+                                        "Datos" => []
+                                        );
+
+                                     echo json_encode($respuesta);
+                }
+                
+
+
+
+                break;
             case 'N0':
 
                 $res= array ("Mensaje" => "El webservice no puede estar vacio", "codMensaje" => 200);

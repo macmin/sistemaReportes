@@ -1,6 +1,6 @@
 function alertMensaje(){
 
-   return alert("Usuario no valido");
+   alert("Usuario no valido");
 
 
 }
